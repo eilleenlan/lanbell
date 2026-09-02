@@ -1,12 +1,21 @@
 import { affairs, events, learningGroups, notices, updatedAt } from './data.js';
 
 const routes=[['/','首頁','⌂'],['/calendar','行事曆','▣'],['/learning','課務學習','▤'],['/affairs','校園事務','◇'],['/notices','公告','◉']];
-const state={grade:'all',category:'all'};
+const categoryGroups={
+  '重要日程':['重要日程'],
+  '課程與考試':['夜間課程/夜自習','考試-全民英檢','考試-學科競賽','考試-國際能力','考試-模擬考','考試-段考'],
+  '活動與校外教學':['活動','田教/校外教學'],
+  '家長參與':['家長參與'],
+  '健康照護':['健康'],
+  '行政與其他':['行政','編班','其他'],
+};
+const groupFor=(category)=>Object.entries(categoryGroups).find(([,items])=>items.includes(category))?.[0]||'其他';
+const state={grade:'all',group:'all',category:'all'};
 const root=document.querySelector('#root');
 const dateText=(event)=>{
   const weekdays='日一二三四五六';
   const short=(value)=>{const date=new Date(`${value}T00:00:00`);return `${date.getFullYear()}.${String(date.getMonth()+1).padStart(2,'0')}.${String(date.getDate()).padStart(2,'0')}（${weekdays[date.getDay()]}）`};
-  return event.end&&event.end!==event.start?`${short(event.start)}–${short(event.end)}`:short(event.start);
+  return event.end&&event.end!==event.start?`${short(event.start)}<span class="date-connector">｜</span><span class="date-end">${short(event.end)}</span>`:short(event.start);
 };
 const gradeText=(grades)=>grades.length?grades.map(x=>`國${'七八九'[x-7]}`).join('、'):'國中部全體';
 const head=(a,b,c)=>`<header class="page-header"><span class="eyebrow">${a}</span><h1>${b}</h1><p>${c}</p></header>`;
@@ -18,11 +27,11 @@ function home(){
 }
 
 function calendar(){
-  const categories=[...new Set(events.map(x=>x.category))];
-  const filtered=events.filter(x=>(state.grade==='all'||x.grades.length===0||x.grades.includes(Number(state.grade)))&&(state.category==='all'||x.category===state.category)).slice().sort((a,b)=>a.start.localeCompare(b.start)||a.title.localeCompare(b.title,'zh-Hant'));
-  return head('115學年度第一學期','國中部活動行事曆','依年級與活動類型快速篩選。標示「暫定」的日期仍須以最新公告為準。')+
-    `<section class="calendar-tools" aria-label="行事曆篩選"><label>適用年級<select id="grade-filter"><option value="all">全部年級</option><option value="7">國七</option><option value="8">國八</option><option value="9">國九</option></select></label><label>活動類型<select id="category-filter"><option value="all">全部類型</option>${categories.map(x=>`<option value="${x}">${x}</option>`).join('')}</select></label><p>顯示 <strong>${filtered.length}</strong> 項</p></section>`+
-    `<section class="timeline">${filtered.map(x=>`<article><time>${dateText(x)}</time><div class="event-copy"><div class="event-tags"><span class="tag">${x.category}</span><span class="grade-tag">${gradeText(x.grades)}</span>${x.tentative?'<span class="tentative-tag">暫定</span>':''}</div><h2>${x.title}</h2>${x.note?`<p>${x.note}</p>`:''}</div></article>`).join('')||'<p class="empty-state">目前沒有符合條件的活動。</p>'}</section><p class="source-note">資料依使用者提供的「115-1 國中部活動日期統整」圖片整理；民國115／116年已轉為西元2026／2027年。</p>`+
+  const categories=state.group==='all'?[...new Set(events.map(x=>x.category))]:categoryGroups[state.group];
+  const filtered=events.filter(x=>(state.grade==='all'||x.grades.length===0||x.grades.includes(Number(state.grade)))&&(state.group==='all'||groupFor(x.category)===state.group)&&(state.category==='all'||x.category===state.category)).slice().sort((a,b)=>a.start.localeCompare(b.start)||a.title.localeCompare(b.title,'zh-Hant'));
+  return head('115學年度第一學期','國中部活動行事曆','依年級、大分類與小分類快速篩選。標示「暫定」的日期仍須以最新公告為準。')+
+    `<section class="calendar-tools" aria-label="行事曆篩選"><label>適用年級<select id="grade-filter"><option value="all">全部年級</option><option value="7">國七</option><option value="8">國八</option><option value="9">國九</option></select></label><label>大分類<select id="group-filter"><option value="all">全部大分類</option>${Object.keys(categoryGroups).map(x=>`<option value="${x}">${x}</option>`).join('')}</select></label><label>小分類<select id="category-filter"><option value="all">全部小分類</option>${categories.map(x=>`<option value="${x}">${x}</option>`).join('')}</select></label><p>顯示 <strong>${filtered.length}</strong> 項</p></section>`+
+    `<section class="timeline">${filtered.map(x=>`<article><time>${dateText(x)}</time><div class="event-copy"><div class="event-tags"><span class="group-tag">${groupFor(x.category)}</span><span class="tag">${x.category}</span><span class="grade-tag">${gradeText(x.grades)}</span>${x.tentative?'<span class="tentative-tag">暫定</span>':''}</div><h2>${x.title}</h2>${x.note?`<p>${x.note}</p>`:''}</div></article>`).join('')||'<p class="empty-state">目前沒有符合條件的活動。</p>'}</section><p class="source-note">資料依使用者提供的「115-1 國中部活動日期統整」圖片整理；民國115／116年已轉為西元2026／2027年。</p>`+
     `<section class="source-gallery"><header><span class="eyebrow">SOURCE FILES</span><h2>田教日期原始資料</h2><p>點選圖片可另開原尺寸檢視。</p></header><div class="source-grid"><figure><a href="./assets/field-trips/grade-7-field-trip-dates.png" target="_blank" rel="noopener"><img src="./assets/field-trips/grade-7-field-trip-dates.png" alt="國七單日田教日期原始表格"></a><figcaption>國七｜單日田教</figcaption></figure><figure><a href="./assets/field-trips/grade-8-field-trip-dates.png" target="_blank" rel="noopener"><img src="./assets/field-trips/grade-8-field-trip-dates.png" alt="國八過夜田教日期原始表格"></a><figcaption>國八｜過夜田教</figcaption></figure><figure><a href="./assets/field-trips/grade-9-field-trip-dates.png" target="_blank" rel="noopener"><img src="./assets/field-trips/grade-9-field-trip-dates.png" alt="國九田教日期原始表格"></a><figcaption>國九｜田教</figcaption></figure></div></section>`;
 }
 
@@ -38,9 +47,11 @@ function render(){
   document.querySelector('.menu-button').onclick=()=>document.querySelector('nav').classList.toggle('open');
   if(path==='/calendar'){
     const grade=document.querySelector('#grade-filter');
+    const group=document.querySelector('#group-filter');
     const category=document.querySelector('#category-filter');
-    grade.value=state.grade; category.value=state.category;
+    grade.value=state.grade; group.value=state.group; category.value=state.category;
     grade.onchange=()=>{state.grade=grade.value;render()};
+    group.onchange=()=>{state.group=group.value;state.category='all';render()};
     category.onchange=()=>{state.category=category.value;render()};
   }
   scrollTo(0,0);
