@@ -4,7 +4,8 @@ const routes=[['/','首頁','⌂'],['/calendar','行事曆','▣'],['/learning',
 const state={grade:'all',category:'all'};
 const root=document.querySelector('#root');
 const dateText=(event)=>{
-  const short=(value)=>{const date=new Date(`${value}T00:00:00`);return `${date.getFullYear()}.${String(date.getMonth()+1).padStart(2,'0')}.${String(date.getDate()).padStart(2,'0')}`};
+  const weekdays='日一二三四五六';
+  const short=(value)=>{const date=new Date(`${value}T00:00:00`);return `${date.getFullYear()}.${String(date.getMonth()+1).padStart(2,'0')}.${String(date.getDate()).padStart(2,'0')}（${weekdays[date.getDay()]}）`};
   return event.end&&event.end!==event.start?`${short(event.start)}–${short(event.end)}`:short(event.start);
 };
 const gradeText=(grades)=>grades.length?grades.map(x=>`國${'七八九'[x-7]}`).join('、'):'國中部全體';
