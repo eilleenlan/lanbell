@@ -9,7 +9,7 @@ const categoryGroups={
 };
 const groupFor=(category)=>Object.entries(categoryGroups).find(([,items])=>items.includes(category))?.[0]||'行政與其他';
 const placeFor=(category)=>category==='考試-全民英檢'?'校外':'校內';
-const state={grade:'all',place:'all',groups:[],categories:[],query:''};
+const state={grade:'all',place:'all',groups:[],categories:[],query:'',includePast:false};
 const root=document.querySelector('#root');
 const dateText=(event)=>{
   const weekdays='日一二三四五六';
@@ -27,6 +27,15 @@ const compactDate=(event)=>{
   return event.end&&event.end!==event.start?`${format(event.start)}－${format(event.end)}`:format(event.start);
 };
 const countdownLabel=(date)=>{const days=daysUntil(date);return days===0?'就是今天':days>0?`還有 ${days} 天`:'已結束'};
+const escapeHtml=(value)=>value.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const isPast=(event)=>localDate(event.end||event.start)<startOfToday();
+const addDays=(value,days)=>{const date=localDate(value);date.setDate(date.getDate()+days);return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`};
+const googleCalendarUrl=(event)=>{
+  const calendarDate=(value)=>value.replaceAll('-','');
+  const details=[gradeText(event.grades),event.category,event.note||'', '本站為家長自行整理資訊，請以學校與導師最新公告為準。'].filter(Boolean).join('\n');
+  const params=new URLSearchParams({action:'TEMPLATE',text:event.title,dates:`${calendarDate(event.start)}/${calendarDate(addDays(event.end||event.start,1))}`,details});
+  return `https://calendar.google.com/calendar/render?${params}`;
+};
 
 function home(){
   const descriptions=['依年級查找活動與重要日期','課表、考試範圍與學習資源','交通、制服、餐飲與行政流程','依年級整理的重要通知'];
@@ -47,11 +56,10 @@ function calendar(){
     const haystack=[x.title,x.note||'',x.category,groupFor(x.category),placeFor(x.category),gradeText(x.grades),...dates].join(' ').toLocaleLowerCase('zh-Hant');
     return haystack.includes(query);
   };
-  const filtered=events.filter(x=>(state.grade==='all'||x.grades.length===0||x.grades.includes(Number(state.grade)))&&(state.place==='all'||placeFor(x.category)===state.place)&&(state.groups.length===0||state.groups.includes(groupFor(x.category)))&&(state.categories.length===0||state.categories.includes(x.category))&&matchesQuery(x)).slice().sort((a,b)=>a.start.localeCompare(b.start)||a.title.localeCompare(b.title,'zh-Hant'));
+  const filtered=events.filter(x=>(state.includePast||!isPast(x))&&(state.grade==='all'||x.grades.length===0||x.grades.includes(Number(state.grade)))&&(state.place==='all'||placeFor(x.category)===state.place)&&(state.groups.length===0||state.groups.includes(groupFor(x.category)))&&(state.categories.length===0||state.categories.includes(x.category))&&matchesQuery(x)).slice().sort((a,b)=>a.start.localeCompare(b.start)||a.title.localeCompare(b.title,'zh-Hant'));
   return head('115學年度第一學期','國中部活動行事曆','依年級、校內／校外、大分類與小分類快速篩選。標示「暫定」的日期仍須以最新公告為準。')+
-    `<form class="calendar-search" id="calendar-search" role="search"><label for="search-input">搜尋活動</label><div><input id="search-input" type="search" placeholder="例如：段考、國九、10/23" autocomplete="off"><button class="search-button" type="submit">搜尋</button><button class="clear-button" id="search-clear" type="button">清除</button></div></form>`+
-    `<section class="calendar-tools" aria-label="行事曆篩選"><div class="select-filters"><label>適用年級<select id="grade-filter"><option value="all">全部年級</option><option value="7">國七</option><option value="8">國八</option><option value="9">國九</option></select></label><label>校內／校外<select id="place-filter"><option value="all">全部</option><option value="校內">校內</option><option value="校外">校外</option></select></label><p>顯示 <strong>${filtered.length}</strong> 項</p></div><fieldset class="multi-filter"><legend>大分類（可複選；未選代表全部）</legend><div>${Object.keys(categoryGroups).map(x=>`<label><input type="checkbox" name="group-filter" value="${x}" ${state.groups.includes(x)?'checked':''}><span>${x}</span></label>`).join('')}</div></fieldset><fieldset class="multi-filter"><legend>小分類（可複選；未選代表全部）</legend><div>${categories.map(x=>`<label><input type="checkbox" name="category-filter" value="${x}" ${state.categories.includes(x)?'checked':''}><span>${x}</span></label>`).join('')}</div></fieldset></section>`+
-    `<section class="timeline">${filtered.map(x=>`<article><time>${dateText(x)}</time><div class="event-copy"><div class="event-tags"><span class="place-tag">${placeFor(x.category)}</span><span class="group-tag">${groupFor(x.category)}</span><span class="tag">${x.category}</span><span class="grade-tag">${gradeText(x.grades)}</span>${x.tentative?'<span class="tentative-tag">暫定</span>':''}</div><h2>${x.title}</h2>${x.note?`<p>${x.note}</p>`:''}</div></article>`).join('')||'<p class="empty-state">目前沒有符合條件的活動。</p>'}</section><p class="source-note">資料依使用者提供的「115-1 國中部活動日期統整」圖片整理；民國115／116年已轉為西元2026／2027年。</p>`+
+    `${state.query?`<section class="search-summary"><span>搜尋「${escapeHtml(state.query)}」的結果</span><button id="search-clear" type="button">清除搜尋</button></section>`:''}<section class="calendar-tools" aria-label="行事曆篩選"><div class="select-filters"><label>適用年級<select id="grade-filter"><option value="all">全部年級</option><option value="7">國七</option><option value="8">國八</option><option value="9">國九</option></select></label><label>校內／校外<select id="place-filter"><option value="all">全部</option><option value="校內">校內</option><option value="校外">校外</option></select></label><label class="past-toggle"><input id="include-past" type="checkbox" ${state.includePast?'checked':''}><span>包含已過期</span></label><p>顯示 <strong>${filtered.length}</strong> 項</p></div><fieldset class="multi-filter"><legend>大分類（可複選；未選代表全部）</legend><div>${Object.keys(categoryGroups).map(x=>`<label><input type="checkbox" name="group-filter" value="${x}" ${state.groups.includes(x)?'checked':''}><span>${x}</span></label>`).join('')}</div></fieldset><fieldset class="multi-filter"><legend>小分類（可複選；未選代表全部）</legend><div>${categories.map(x=>`<label><input type="checkbox" name="category-filter" value="${x}" ${state.categories.includes(x)?'checked':''}><span>${x}</span></label>`).join('')}</div></fieldset></section>`+
+    `<section class="timeline">${filtered.map(x=>`<article class="${isPast(x)?'past-event':''}"><time>${dateText(x)}</time><div class="event-copy"><div class="event-tags"><span class="place-tag">${placeFor(x.category)}</span><span class="group-tag">${groupFor(x.category)}</span><span class="tag">${x.category}</span><span class="grade-tag">${gradeText(x.grades)}</span>${x.tentative?'<span class="tentative-tag">暫定</span>':''}${isPast(x)?'<span class="expired-tag">已結束</span>':''}</div><h2>${x.title}</h2>${x.note?`<p>${x.note}</p>`:''}<a class="google-calendar-link" href="${googleCalendarUrl(x)}" target="_blank" rel="noopener">＋ 加入 Google 日曆</a></div></article>`).join('')||'<p class="empty-state">目前沒有符合條件的活動。</p>'}</section><p class="source-note">資料依使用者提供的「115-1 國中部活動日期統整」圖片整理；民國115／116年已轉為西元2026／2027年。</p>`+
     `<section class="source-gallery"><header><span class="eyebrow">SOURCE FILES</span><h2>田教日期原始資料</h2><p>點選圖片可另開原尺寸檢視。</p></header><div class="source-grid"><figure><a href="./assets/field-trips/grade-7-field-trip-dates.png" target="_blank" rel="noopener"><img src="./assets/field-trips/grade-7-field-trip-dates.png" alt="國七單日田教日期原始表格"></a><figcaption>國七｜單日田教</figcaption></figure><figure><a href="./assets/field-trips/grade-8-field-trip-dates.png" target="_blank" rel="noopener"><img src="./assets/field-trips/grade-8-field-trip-dates.png" alt="國八過夜田教日期原始表格"></a><figcaption>國八｜過夜田教</figcaption></figure><figure><a href="./assets/field-trips/grade-9-field-trip-dates.png" target="_blank" rel="noopener"><img src="./assets/field-trips/grade-9-field-trip-dates.png" alt="國九田教日期原始表格"></a><figcaption>國九｜田教</figcaption></figure></div></section>`;
 }
 
@@ -66,20 +74,26 @@ function render(resetScroll=false){
   const pages={'/':home,'/calendar':calendar,'/learning':learning,'/affairs':school,'/notices':notice};
   root.innerHTML=`<div class="site-shell"><header class="site-header"><a class="brand" href="#/"><b>◆</b><span>小鈴鐺資訊整合</span></a><button class="menu-button" aria-label="切換導覽">☰</button><nav aria-label="主要導覽">${routes.map(([p,l,i])=>`<a class="${path===p?'active':''}" href="#${p}"><b>${i}</b><span>${l}</span></a>`).join('')}</nav></header><main>${pages[path]()}</main><footer>本站為家長自行整理資訊，請以學校與導師最新公告為準。<span>最後更新：${updatedAt}</span></footer></div>`;
   document.querySelector('.menu-button').onclick=()=>document.querySelector('nav').classList.toggle('open');
+  if(path==='/'){
+    const actions=document.querySelector('.hero-actions');
+    actions.insertAdjacentHTML('beforebegin','<form class="calendar-search home-search" id="home-search" role="search"><label for="home-search-input">搜尋所有行程</label><div><input id="home-search-input" type="search" placeholder="例如：段考、國九、10/23" autocomplete="off"><button class="search-button" type="submit">搜尋</button></div></form>');
+    const homeSearch=document.querySelector('#home-search');
+    const homeSearchInput=document.querySelector('#home-search-input');
+    homeSearchInput.value=state.query;
+    homeSearch.onsubmit=(event)=>{event.preventDefault();state.query=homeSearchInput.value.trim();if(!state.query)return;state.includePast=true;location.hash='#/calendar'};
+  }
   if(path==='/calendar'){
-    const searchForm=document.querySelector('#calendar-search');
-    const searchInput=document.querySelector('#search-input');
     const searchClear=document.querySelector('#search-clear');
     const grade=document.querySelector('#grade-filter');
     const place=document.querySelector('#place-filter');
+    const includePast=document.querySelector('#include-past');
     const groupChecks=[...document.querySelectorAll('[name="group-filter"]')];
     const categoryChecks=[...document.querySelectorAll('[name="category-filter"]')];
-    searchInput.value=state.query; searchClear.hidden=!state.query;
     grade.value=state.grade; place.value=state.place;
-    searchForm.onsubmit=(event)=>{event.preventDefault();state.query=searchInput.value.trim();render()};
-    searchClear.onclick=()=>{state.query='';render()};
+    if(searchClear)searchClear.onclick=()=>{state.query='';state.includePast=false;render()};
     grade.onchange=()=>{state.grade=grade.value;render()};
     place.onchange=()=>{state.place=place.value;render()};
+    includePast.onchange=()=>{state.includePast=includePast.checked;render()};
     groupChecks.forEach(input=>input.onchange=()=>{state.groups=groupChecks.filter(x=>x.checked).map(x=>x.value);const allowed=state.groups.length?state.groups.flatMap(x=>categoryGroups[x]):Object.values(categoryGroups).flat();state.categories=state.categories.filter(x=>allowed.includes(x));render()});
     categoryChecks.forEach(input=>input.onchange=()=>{state.categories=categoryChecks.filter(x=>x.checked).map(x=>x.value);render()});
   }
