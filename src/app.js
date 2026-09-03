@@ -1,6 +1,6 @@
 import { affairs, events, learningGroups, notices, updatedAt } from './data.js';
 
-const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/learning','考程整理','▤'],['/affairs','校園事務','◇'],['/notices','網站最新異動','★']];
+const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅']];
 const categoryGroups={
   '重要日程':['開學/放假','活動','夜間課程/夜自習','田教/校外教學'],
   '考試':['考試-全民英檢','考試-學科競賽','考試-國際能力','考試-模擬考','考試-段考'],
@@ -83,6 +83,8 @@ function render(resetScroll=false){
   document.querySelector('.menu-button').onclick=()=>document.querySelector('nav').classList.toggle('open');
   if(path==='/'){
     const actions=document.querySelector('.hero-actions');
+    actions.querySelector('.secondary')?.remove();
+    document.querySelector('.quick-section')?.remove();
     actions.insertAdjacentHTML('beforebegin','<form class="calendar-search home-search" id="home-search" role="search"><label for="home-search-input">搜尋所有行程</label><div><input id="home-search-input" type="search" placeholder="例如：段考、國九、10/23" autocomplete="off"><button class="search-button" type="submit">搜尋</button></div></form>');
     const homeSearch=document.querySelector('#home-search');
     const homeSearchInput=document.querySelector('#home-search-input');
