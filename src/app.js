@@ -18,11 +18,24 @@ const dateText=(event)=>{
 };
 const gradeText=(grades)=>grades.length?grades.map(x=>`國${'七八九'[x-7]}`).join('、'):'國中部全體';
 const head=(a,b,c)=>`<header class="page-header"><span class="eyebrow">${a}</span><h1>${b}</h1><p>${c}</p></header>`;
+const localDate=(value)=>new Date(`${value}T00:00:00`);
+const startOfToday=()=>{const today=new Date();return new Date(today.getFullYear(),today.getMonth(),today.getDate())};
+const daysUntil=(value)=>Math.ceil((localDate(value)-startOfToday())/86400000);
+const compactDate=(event)=>{
+  const weekdays='日一二三四五六';
+  const format=(value)=>{const date=localDate(value);return `${date.getFullYear()}.${String(date.getMonth()+1).padStart(2,'0')}.${String(date.getDate()).padStart(2,'0')}（${weekdays[date.getDay()]}）`};
+  return event.end&&event.end!==event.start?`${format(event.start)}－${format(event.end)}`:format(event.start);
+};
+const countdownLabel=(date)=>{const days=daysUntil(date);return days===0?'就是今天':days>0?`還有 ${days} 天`:'已結束'};
 
 function home(){
   const descriptions=['依年級查找活動與重要日期','課表、考試範圍與學習資源','交通、制服、餐飲與行政流程','依年級整理的重要通知'];
-  const next=events[0];
-  return `<section class="hero"><div class="hero-copy"><span class="eyebrow">MIDDLE SCHOOL INFO PORTAL</span><h1>不同年級的重要日期，<br>清楚整理在一處。</h1><p>快速依年級查找活動、課程、健康檢查、家長會與各項截止日。</p><div class="hero-actions"><a class="primary" href="#/calendar">▣ 查看完整行事曆</a><a class="secondary" href="#/notices">◉ 最新公告</a></div></div><aside class="today-card"><span>◷ 第一筆行程</span><strong>${dateText(next).slice(5)}</strong><h2>${next.title}</h2><p>${gradeText(next.grades)}${next.note?`・${next.note}`:''}</p><a href="#/calendar">依年級篩選 <b>›</b></a></aside></section><section class="quick-section"><div class="section-heading"><span>快速入口</span><h2>你今天要找什麼？</h2></div><div class="quick-grid">${routes.slice(1).map(([p,l,i],n)=>`<a href="#${p}"><span class="card-number">0${n+1}</span><i class="large-symbol">${i}</i><h3>${l}</h3><p>${descriptions[n]}</p><b class="arrow">›</b></a>`).join('')}</div></section><section class="status-band"><b>✓</b><div><strong>已匯入 ${events.length} 項日期</strong><span>資料來源：115學年度第一學期國中部活動日期整理；修訂日期已套用。</span></div></section>`;
+  const today=startOfToday();
+  const monthLater=new Date(today);monthLater.setDate(monthLater.getDate()+30);
+  const upcomingExams=events.filter(x=>x.category.startsWith('考試-')&&localDate(x.start)>=today&&localDate(x.start)<=monthLater).sort((a,b)=>a.start.localeCompare(b.start));
+  const entranceExam={start:'2027-05-15',end:'2027-05-16',title:'116年國中教育會考'};
+  const examRows=upcomingExams.length?upcomingExams.map(x=>`<li><strong>${countdownLabel(x.start)}</strong><h2>${x.title}</h2><p>${compactDate(x)}${x.grades.length?`・${gradeText(x.grades)}`:''}</p></li>`).join(''):'<li class="countdown-empty">未來一個月內目前沒有考試。</li>';
+  return `<section class="hero"><div class="hero-copy"><span class="eyebrow">MIDDLE SCHOOL INFO PORTAL</span><h1>不同年級的重要日期，<br>清楚整理在一處。</h1><p>快速依年級查找活動、課程、健康檢查、家長會與各項截止日。</p><div class="hero-actions"><a class="primary" href="#/calendar">▣ 查看完整行事曆</a><a class="secondary" href="#/notices">◉ 最新公告</a></div></div><aside class="today-card countdown-card"><span>◷ 重要日期倒數</span><section class="entrance-countdown"><strong>${countdownLabel(entranceExam.start)}</strong><h2>${entranceExam.title}</h2><p>${compactDate(entranceExam)}</p></section><div class="countdown-subheading"><b>未來一個月內的考試</b><span>${upcomingExams.length} 項</span></div><ul>${examRows}</ul><a href="#/calendar">查看完整行事曆 <b>›</b></a></aside></section><section class="quick-section"><div class="section-heading"><span>快速入口</span><h2>你今天要找什麼？</h2></div><div class="quick-grid">${routes.slice(1).map(([p,l,i],n)=>`<a href="#${p}"><span class="card-number">0${n+1}</span><i class="large-symbol">${i}</i><h3>${l}</h3><p>${descriptions[n]}</p><b class="arrow">›</b></a>`).join('')}</div></section><section class="status-band"><b>✓</b><div><strong>已匯入 ${events.length} 項日期</strong><span>資料來源：115學年度第一學期國中部活動日期整理；修訂日期已套用。</span></div></section>`;
 }
 
 function calendar(){
