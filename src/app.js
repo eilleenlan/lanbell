@@ -5,7 +5,7 @@ const categoryGroups={
   '重要日程':['開學/放假','活動','夜間課程/夜自習','田教/校外教學'],
   '考試':['考試-全民英檢','考試-學科競賽','考試-國際能力','考試-模擬考','考試-段考'],
   '家長參與':['一般家長','特定家長'],
-  '行政與其他':['行政','編班','其他'],
+  '行政與其他':['行政','健康','編班','其他'],
 };
 const groupFor=(category)=>Object.entries(categoryGroups).find(([,items])=>items.includes(category))?.[0]||'行政與其他';
 const placeFor=(category)=>category==='考試-全民英檢'?'校外':'校內';
