@@ -1,4 +1,4 @@
-export const updatedAt = '2026年9月3日';
+export const updatedAt = '2026年9月5日';
 
 // 115學年度第一學期國中部活動日期；民國115/116年轉為西元2026/2027年。
 // grades: 7=國七、8=國八、9=國九；空陣列代表國中部全體。
@@ -33,7 +33,7 @@ export const events = [
   { start:'2027-01-04', end:'2027-01-08', category:'夜間課程/夜自習', grades:[9], title:'國九夜間課程暫停', note:'段考期間' },
   { start:'2027-01-04', end:'2027-01-08', category:'行政', grades:[], title:'115-1學期學生出缺勤資料核對' },
   { start:'2027-01-11', end:'2027-01-19', category:'夜間課程/夜自習', grades:[], title:'夜間課程暫停', note:'段考期間' },
-  { start:'2027-01-18', end:'2027-01-20', category:'田教/校外教學', grades:[9], title:'國九教育旅行', note:'已依圖片修訂日期更新' },
+  { start:'2027-01-18', end:'2027-01-20', category:'畢業', grades:[9], title:'國九教育旅行', note:'國九畢業旅行（畢旅）；已依圖片修訂日期更新' },
   { start:'2027-01-18', category:'夜間課程/夜自習', grades:[], title:'本週夜自習結束', note:'依期末考時間訂之', tentative:true },
   { start:'2027-01-18', category:'編班', grades:[], title:'本週國際能力轉組與九直編班' },
   { start:'2027-01-18', category:'編班', grades:[], title:'本週國內班轉國際班測驗' },

@@ -2,19 +2,19 @@
 
 ## 架構
 
-網站採 React + Vite，使用 hash route，適合部署到 GitHub Pages 或一般靜態網站服務。
+網站採原生 HTML、CSS、JavaScript ES modules，使用 hash route，無需建置，適合部署到 GitHub Pages 或一般靜態網站服務。詳細維護方式見 [PROJECT_GUIDE.md](PROJECT_GUIDE.md)。
 
 - `#/`：首頁
 - `#/calendar`：行事曆
-- `#/learning`：課務與學習
-- `#/affairs`：校園事務
-- `#/notices`：公告
+- `#/learning`：課務與學習（未開放，目前回到首頁）
+- `#/affairs`：校園事務（未開放，目前回到首頁）
+- `#/notices`：公告（未開放，目前回到首頁）
 
-所有初始示意資料集中於 `src/data.js`，頁面與導覽集中於 `src/main.jsx`。
+活動與保留骨架資料集中於 `src/data.js`，頁面與導覽集中於 `src/app.js`。
 
 ## 設計方向
 
-「學院綠 × 紙張白 × 暖金」：延續原小學資訊站的清楚、安心與易讀，但降低童趣感，改為較成熟的中學學院風格。
+目前為「暖紙色 × 藍色 × 暖金棕」：背景 #f6f0e6、表面 #fffdf9、主色 #496a83、重點色 #b77943。使用 Noto Sans TC 與 Noto Serif TC，維持清楚易讀的中學資訊風格。
 
 ## 後續資料建議格式
 
