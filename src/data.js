@@ -1,4 +1,4 @@
-export const updatedAt = '2026年9月5日';
+export const updatedAt = '2026年9月7日';
 
 // 115學年度第一學期國中部活動日期；民國115/116年轉為西元2026/2027年。
 // grades: 7=國七、8=國八、9=國九；空陣列代表國中部全體。
@@ -8,14 +8,14 @@ export const events = [
   { start:'2026-08-31', category:'夜間課程/夜自習', grades:[], title:'夜自習開始' },
   { start:'2026-09-14', category:'夜間課程/夜自習', grades:[8,9], title:'夜間課程開始', note:'國七除外' },
   { start:'2026-09-14', end:'2026-10-02', category:'活動', grades:[8], title:'八忠～八勇游泳課', note:'10/2 結束' },
-  { start:'2026-09-14', end:'2026-10-04', category:'活動', grades:[], title:'耶晚報名', note:'10/4 截止' },
+  { start:'2026-09-14', end:'2026-10-04', category:'活動', grades:[7,8], title:'耶晚報名', note:'10/4 截止；國九是否可參加，請與班導確認。' },
   { start:'2026-09-15', category:'健康', grades:[7], title:'新生尿液健康檢查', tentative:true },
   { start:'2026-09-22', category:'健康', grades:[8], title:'HPV 第一劑疫苗施打' },
   { start:'2026-09-22', category:'一般家長', grades:[9], title:'國九家長會' },
   { start:'2026-10-02', category:'特定家長', grades:[], title:'家長代表大會', tentative:true },
   { start:'2026-10-05', end:'2026-10-14', category:'夜間課程/夜自習', grades:[], title:'夜間課程暫停', note:'段考期間' },
   { start:'2026-10-05', end:'2026-10-08', category:'行政', grades:[], title:'9月學生出缺勤資料核對' },
-  { start:'2026-10-17', category:'活動', grades:[], title:'桌球賽', tentative:true },
+  { start:'2026-10-17', category:'活動', grades:[7,8], title:'桌球賽', note:'國九是否可參加，請與班導確認。', tentative:true },
   { start:'2026-10-20', end:'2026-10-21', category:'健康', grades:[], title:'校園流感疫苗接種' },
   { start:'2026-10-22', category:'健康', grades:[7], title:'外縣市學生心臟病篩檢' },
   { start:'2026-10-31', category:'一般家長', grades:[7,8], title:'國七、國八期中家長座談會' },
@@ -23,20 +23,21 @@ export const events = [
   { start:'2026-11-03', end:'2026-11-05', category:'健康', grades:[7], title:'新生學生健康檢查', note:'11/3、11/4整天；11/5上午' },
   { start:'2026-11-04', category:'行政', grades:[], title:'10月學生出缺勤資料核對' },
   { start:'2026-11-16', end:'2026-11-27', category:'夜間課程/夜自習', grades:[], title:'夜間課程暫停', note:'段考期間' },
-  { start:'2026-11-16', end:'2026-11-20', category:'一般家長', grades:[], title:'國際能力教學觀摩週' },
+  { start:'2026-11-16', end:'2026-11-20', category:'一般家長', grades:[7,8], title:'國際能力教學觀摩週' },
   { start:'2026-11-16', end:'2026-11-20', category:'健康', grades:[], title:'視力健檢複健及矯治回條' },
   { start:'2026-12-04', category:'行政', grades:[], title:'11月學生出缺勤資料核對' },
   { start:'2026-12-07', end:'2026-12-11', category:'編班', grades:[], title:'國內班轉國際班報名' },
   { start:'2026-12-10', category:'一般家長', grades:[9], title:'國九直升課程說明會', tentative:true },
   { start:'2026-12-14', end:'2026-12-26', category:'夜間課程/夜自習', grades:[], title:'新學期混班夜自習申請' },
-  { start:'2026-12-18', category:'活動', grades:[], title:'耶誕晚會', note:'彩排：12/11、12/16' },
+  { start:'2026-12-18', category:'活動', grades:[7,8], title:'耶誕晚會', note:'彩排：12/11、12/16；國九是否可參加，請與班導確認。' },
   { start:'2026-12-21', end:'2026-12-24', category:'行政', grades:[9], title:'國九證件照拍攝', note:'正式日期依學校公告；當週活動', tentative:true },
   { start:'2027-01-04', end:'2027-01-08', category:'夜間課程/夜自習', grades:[9], title:'國九夜間課程暫停', note:'段考期間' },
   { start:'2027-01-04', end:'2027-01-08', category:'行政', grades:[], title:'115-1學期學生出缺勤資料核對' },
   { start:'2027-01-11', end:'2027-01-19', category:'夜間課程/夜自習', grades:[], title:'夜間課程暫停', note:'段考期間' },
   { start:'2027-01-18', end:'2027-01-20', category:'畢業', grades:[9], title:'國九教育旅行', note:'國九畢業旅行（畢旅）；已依圖片修訂日期更新' },
   { start:'2027-01-18', category:'夜間課程/夜自習', grades:[], title:'本週夜自習結束', note:'依期末考時間訂之', tentative:true },
-  { start:'2027-01-18', category:'編班', grades:[], title:'本週國際能力轉組與九直編班' },
+  { start:'2027-01-18', category:'編班', grades:[7,8], title:'本週國際能力轉組' },
+  { start:'2027-01-18', category:'編班', grades:[9], title:'本週九直編班' },
   { start:'2027-01-18', category:'編班', grades:[], title:'本週國內班轉國際班測驗' },
   { start:'2027-01-21', end:'2027-02-02', category:'開學/放假', grades:[], title:'寒期輔導', note:'已依圖片修訂日期更新', tentative:true },
   { start:'2027-02-11', category:'開學/放假', grades:[], title:'115-2學期開學日', tentative:true },
@@ -80,11 +81,11 @@ export const events = [
   // 學科競賽
   { start:'2026-08-21', category:'考試-學科競賽', grades:[], title:'暑期學科競賽', note:'暑輔結束' },
   // 國際能力
-  { start:'2026-09-29', end:'2026-10-08', category:'考試-國際能力', grades:[], title:'國際能力口試週' },
-  { start:'2026-10-05', category:'考試-國際能力', grades:[], title:'國際能力段考一' },
-  { start:'2026-11-02', end:'2026-11-13', category:'考試-國際能力', grades:[], title:'國際能力專題報告週' },
-  { start:'2027-01-04', end:'2027-01-15', category:'考試-國際能力', grades:[], title:'國際能力期末口試週' },
-  { start:'2027-01-15', category:'考試-國際能力', grades:[], title:'國際能力期末考' },
+  { start:'2026-09-29', end:'2026-10-08', category:'考試-國際能力', grades:[7,8], title:'國際能力口試週' },
+  { start:'2026-10-05', category:'考試-國際能力', grades:[7,8], title:'國際能力段考一' },
+  { start:'2026-11-02', end:'2026-11-13', category:'考試-國際能力', grades:[7,8], title:'國際能力專題報告週' },
+  { start:'2027-01-04', end:'2027-01-15', category:'考試-國際能力', grades:[7,8], title:'國際能力期末口試週' },
+  { start:'2027-01-15', category:'考試-國際能力', grades:[7,8], title:'國際能力期末考' },
   // 國九模擬考
   {
     start:'2026-09-08',
@@ -118,12 +119,13 @@ export const events = [
   },
   { start:'2026-12-23', end:'2026-12-24', category:'考試-模擬考', grades:[9], title:'國九第二次模擬考' },
   // 段考與提前考科
-  { start:'2026-09-29', end:'2026-10-08', category:'考試-段考', grades:[], title:'提前考科考試' },
   { start:'2026-10-13', end:'2026-10-14', category:'考試-段考', grades:[], title:'段考一' },
-  { start:'2026-11-02', category:'考試-段考', grades:[], title:'期中考科考試' },
-  { start:'2026-11-09', end:'2026-11-20', category:'考試-段考', grades:[], title:'提前考科考試' },
+  { start:'2026-11-03', category:'考試-段考', grades:[9], title:'期中考科－生活科技', note:'第1節；考試時間：08:10–09:00' },
+  { start:'2026-11-10', category:'考試-段考', grades:[8,9], title:'第二學月提前考科－國文寫作', note:'考試時間：08:10–09:00' },
+  { start:'2026-11-20', category:'考試-段考', grades:[9], title:'第二學月提前考科－生物', note:'考試時間：15:10–16:00' },
   { start:'2026-11-26', end:'2026-11-27', category:'考試-段考', grades:[], title:'段考二' },
-  { start:'2027-01-04', end:'2027-01-15', category:'考試-段考', grades:[], title:'提前考科考試' },
+  { start:'2027-01-04', category:'考試-段考', grades:[8,9], title:'第三學月提前考科－國文寫作', note:'考試時間：08:10–09:00' },
+  { start:'2027-01-08', category:'考試-段考', grades:[9], title:'第三學月提前考科－生活科技', note:'考試時間：08:10–09:00' },
   { start:'2027-01-14', end:'2027-01-15', category:'考試-段考', grades:[9], title:'國九期末考' },
   { start:'2027-01-19', end:'2027-01-20', category:'考試-段考', grades:[7,8], title:'段考三', note:'國七、國八；已依圖片修訂日期更新' },
   // 115學年度第一學期連假
