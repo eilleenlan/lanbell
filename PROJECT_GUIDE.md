@@ -50,7 +50,7 @@ Google 日曆連結開啟預填新增頁，需使用者自行儲存，並非自�
 | category | 必填，需與 app.js 的 categoryGroups 配合 |
 | grades | 必填，[] 表示國中部全體，或 [7]、[8,9] 等 |
 | title | 必填，活動標題 |
-| note | 選填，班別、修訂、報名資訊 |
+| note | 選填，班別、修訂、報名資訊；可用換行字元分行顯示 |
 | tentative | 選填布林值，true 顯示暫定 |
 | schedule | 選填陣列，每筆含 date、time、subject 顯示字串 |
 | examScope | 選填，如 [['數學','第 1～2 冊']] |
