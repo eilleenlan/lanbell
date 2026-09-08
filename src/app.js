@@ -1,4 +1,4 @@
-import { mountExams, examLink } from './exams.js';
+import { mountExams, examLink } from './exams.js?v=20260909-second3';
 import { affairs, events, learningGroups, notices, updatedAt } from './data.js';
 
 const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤']];
