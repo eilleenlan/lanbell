@@ -1,7 +1,8 @@
+import { uniforms } from './uniforms.js?v=20260910';
 import { mountExams, examLink } from './exams.js?v=20260909-second3';
 import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20260909-parent-meeting-r4';
 
-const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤']];
+const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服價格','👕']];
 const categoryGroups={
   '重要日程':['開學/放假','活動','夜間課程/夜自習','田教/校外教學','畢業'],
   '考試':['考試-全民英檢','考試-學科競賽','考試-國際能力','考試-模擬考','考試-段考'],
@@ -83,9 +84,10 @@ function render(resetScroll=false){
   const previousScroll=window.scrollY;
   const raw=(location.hash.slice(1)||'/').split('?')[0];
   const path=routes.some(([p])=>p===raw)?raw:'/';
-  const pages={'/':home,'/calendar':calendar,'/exams':()=>'<div id="exam-root"></div>','/learning':learning,'/affairs':school,'/notices':notice};
+  const pages={'/uniforms':uniforms,'/':home,'/calendar':calendar,'/exams':()=>'<div id="exam-root"></div>','/learning':learning,'/affairs':school,'/notices':notice};
   root.innerHTML=`<div class="site-shell"><header class="site-header"><a class="brand" href="#/"><b>◆</b><span>小鈴鐺資訊整合（中學）</span></a><button class="menu-button" aria-label="切換導覽">☰</button><nav aria-label="主要導覽">${routes.map(([p,l,i])=>`<a class="${path===p?'active':''}" href="#${p}"><b>${i}</b><span>${l}</span></a>`).join('')}</nav></header><main>${pages[path]()}</main><footer>本站為家長自行整理資訊，請以學校與導師最新公告為準。<span>最後更新：${updatedAt}</span></footer></div>`;
   document.querySelector('.menu-button').onclick=()=>document.querySelector('nav').classList.toggle('open');
+  if(path==='/uniforms')document.querySelectorAll('[data-uniform-target]').forEach(button=>button.onclick=()=>document.getElementById(button.dataset.uniformTarget)?.scrollIntoView({behavior:'smooth'}));
   if(path==='/exams')mountExams(document.querySelector('#exam-root'));
   if(path==='/'){
     const actions=document.querySelector('.hero-actions');
