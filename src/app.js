@@ -85,7 +85,7 @@ function render(resetScroll=false){
   const raw=(location.hash.slice(1)||'/').split('?')[0];
   const path=routes.some(([p])=>p===raw)?raw:'/';
   const pages={'/uniforms':uniforms,'/':home,'/calendar':calendar,'/exams':()=>'<div id="exam-root"></div>','/learning':learning,'/affairs':school,'/notices':notice};
-  root.innerHTML=`<div class="site-shell"><header class="site-header"><a class="brand" href="#/"><b>◆</b><span>小鈴鐺資訊整合（中學）</span></a><button class="menu-button" aria-label="切換導覽">☰</button><nav aria-label="主要導覽">${routes.map(([p,l,i])=>`<a class="${path===p?'active':''}" href="#${p}"><b>${i}</b><span>${l}</span></a>`).join('')}</nav></header><main>${pages[path]()}</main><footer>本站為家長自行整理資訊，請以學校與導師最新公告為準。<span>最後更新：${updatedAt}</span></footer></div>`;
+  root.innerHTML=`<div class="site-shell"><header class="site-header"><a class="brand" href="#/"><b>◆</b><span>小鈴鐺資訊整合（中學）</span></a><button class="menu-button" aria-label="切換導覽">☰</button><nav aria-label="主要導覽">${routes.map(([p,l,i])=>`<a class="${path===p?'active':''}" href="#${p}"><b>${i}</b><span>${l}</span></a>`).join('')}</nav></header><p class="site-disclaimer" role="note">非官方網站，純屬家長交流參考，一切資訊以學校最新公告為準</p><main>${pages[path]()}</main><footer>非官方網站，純屬家長交流參考，一切資訊以學校最新公告為準<span>最後更新：${updatedAt}</span></footer></div>`;
   document.querySelector('.menu-button').onclick=()=>document.querySelector('nav').classList.toggle('open');
   if(path==='/uniforms')document.querySelectorAll('[data-uniform-target]').forEach(button=>button.onclick=()=>document.getElementById(button.dataset.uniformTarget)?.scrollIntoView({behavior:'smooth'}));
   if(path==='/exams')mountExams(document.querySelector('#exam-root'));
