@@ -1,8 +1,9 @@
-export const updatedAt = '2026年9月9日';
+export const updatedAt = '2026年9月17日';
 
 // 115學年度第一學期國中部活動日期；民國115/116年轉為西元2026/2027年。
 // grades: 7=國七、8=國八、9=國九；空陣列代表國中部全體。
 export const events = [
+  { start:'2026-09-16', category:'考試-模擬考', grades:[9], title:'國九第一次模擬考放榜', note:'• 20:00 放榜，可自行用學校公告之帳號密碼上網查詢成績。\n• 查詢網站：https://etjhs.mietc.tw/#/ExamCentre/Student/Transcripts' },
   { start:'2027-01-21', end:'2027-02-10', category:'開學/放假', grades:[], title:'寒假', note:'寒假 1/21（四）～2/10（三）；\n寒輔 1/21（四）～2/2（二）；\n年假 2/4～2/10，2/10（初五）。' },
   { start:'2026-08-31', category:'開學/放假', grades:[], title:'開學日' },
   { start:'2026-08-31', category:'夜間課程/夜自習', grades:[], title:'夜自習開始' },
@@ -93,6 +94,7 @@ export const events = [
     category:'考試-模擬考',
     grades:[9],
     title:'國九第一次模擬考',
+    note:'9/16（三）20:00 放榜，可使用學校公告之帳號密碼上網查詢成績。',
     schedule:[
       { date:'9/8（二）', time:'08:50–10:00', subject:'社會科' },
       { date:'9/8（二）', time:'10:35–11:55', subject:'數學科' },
