@@ -1,10 +1,10 @@
-export const updatedAt = '2026年9月17日';
+export const updatedAt = '2026年9月20日';
 
 // 115學年度第一學期國中部活動日期；民國115/116年轉為西元2026/2027年。
 // grades: 7=國七、8=國八、9=國九；空陣列代表國中部全體。
 export const events = [
   { start:'2026-09-16', category:'考試-模擬考', grades:[9], title:'國九第一次模擬考放榜', note:'• 20:00 放榜，可自行用學校公告之帳號密碼上網查詢成績。\n• 查詢網站：https://etjhs.mietc.tw/#/ExamCentre/Student/Transcripts' },
-  { start:'2027-01-21', end:'2027-02-10', category:'開學/放假', grades:[], title:'寒假', note:'寒假 1/21（四）～2/10（三）；\n寒輔 1/21（四）～2/2（二）；\n年假 2/4～2/10，2/10（初五）。' },
+  { start:'2027-01-21', end:'2027-02-10', category:'開學/放假', grades:[], title:'寒假', calendarKind:'winter-break', note:'寒輔 1/21（四）～2/2（二）；\n放假 2/3（三）～2/10（三）（過年連假 2/4～2/10）。' },
   { start:'2026-08-31', category:'開學/放假', grades:[], title:'開學日' },
   { start:'2026-08-31', category:'夜間課程/夜自習', grades:[], title:'夜自習開始' },
   { start:'2026-09-14', category:'夜間課程/夜自習', grades:[8,9], title:'夜間課程開始', note:'國七除外' },
@@ -40,7 +40,7 @@ export const events = [
   { start:'2027-01-18', category:'編班', grades:[7,8], title:'本週國際能力轉組' },
   { start:'2027-01-18', category:'編班', grades:[9], title:'本週九直編班' },
   { start:'2027-01-18', category:'編班', grades:[], title:'本週國內班轉國際班測驗' },
-  { start:'2027-01-21', end:'2027-02-02', category:'開學/放假', grades:[], title:'寒期輔導', note:'．寒輔週一～週五上課。\n．16：10放學。', tentative:true },
+  { start:'2027-01-21', end:'2027-02-02', category:'開學/放假', grades:[], title:'寒期輔導', calendarKind:'winter-course', weekdays:[1,2,3,4,5], note:'．寒輔週一～週五上課，週六、日不用到校。\n．16：10放學。', tentative:true },
   { start:'2027-02-11', category:'開學/放假', grades:[], title:'115-2學期開學日', tentative:true },
   // 國七單日田教
   { start:'2026-08-10', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'忠、孝班' },
