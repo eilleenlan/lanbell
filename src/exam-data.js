@@ -69,4 +69,12 @@ examFiles.push(...[114,113].flatMap(year=>(year===113?['7','8','9-direct']:['7',
   thumbnail:`./assets/exams/${year}/second-semester-exam3-g${variant}-thumb.jpg`,
   source:'家長整理提供；日期及班別依原圖，未標示修訂日期者留空',
 }))));
+examFiles.push(...[7,8,9].map(grade=>({
+  id:`115-first-exam1-g${grade}`,year:'115',grade:String(grade),term:'上學期',exam:'第一次段考',
+  date:'2026-10-13',end:'2026-10-14',revised:'2026-09-29',
+  note:grade===9?'':'另含 2026/10/5 15:10～16:00 國際能力；詳見原圖。',
+  original:`./assets/exams/115/first-semester-exam1-g${grade}.jpg`,
+  thumbnail:`./assets/exams/115/first-semester-exam1-g${grade}-thumb.jpg`,
+  source:'家長整理提供；日期及修訂日期依原圖',
+})));
 examFiles.sort((a,b)=>Number(b.year)-Number(a.year)||a.date.localeCompare(b.date)||Number(a.grade)-Number(b.grade));

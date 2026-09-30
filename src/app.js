@@ -1,5 +1,5 @@
 import { uniforms } from './uniforms.js?v=20260910';
-import { mountExams, examLink } from './exams.js?v=20260909-second3';
+import { mountExams, examLink } from './exams.js?v=20260930-exam1';
 import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20260920-winter-r2';
 
 const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服價格','👕']];

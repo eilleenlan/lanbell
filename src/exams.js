@@ -1,11 +1,12 @@
-import {examFiles} from './exam-data.js?v=20260909-second3';
+import {examFiles} from './exam-data.js?v=20260930-exam1';
 const labels={year:'學年度',grade:'年級',term:'時期',exam:'考試'};
 const options={year:[...new Set(examFiles.map(x=>x.year))].sort((a,b)=>b-a),grade:['7','8','9'],term:['上學期','下學期','暑期'],exam:['第一次段考','第二次段考','第三次段考','暑期學科競賽']};
 const gradeName=g=>`國${'七八九'[Number(g)-7]}`;
 const name=x=>`${x.year}學年度・${x.term}・${x.exam}・${gradeName(x.grade)}${x.track?`（${x.track}）`:""}`;
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const examLink=event=>{
- const matches=examFiles.filter(x=>x.date===event.start&&x.exam===event.title);
+ const title=({'段考一':'第一次段考','段考二':'第二次段考','段考三':'第三次段考'})[event.title]||event.title;
+ const matches=examFiles.filter(x=>x.date===event.start&&x.exam===title);
  return matches.length?`<a class="google-calendar-link" href="#/exams?year=${matches[0].year}&term=${encodeURIComponent(matches[0].term)}&exam=${encodeURIComponent(matches[0].exam)}">查看考程原圖</a>`:'';
 };
 export function mountExams(host){
