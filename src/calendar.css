@@ -35,3 +35,5 @@
 .semester-jumps button{flex:0 0 auto;white-space:nowrap;min-height:44px}.semester-jumps button:disabled{opacity:.45;cursor:default}
 .semester-month,.semester-week{scroll-margin-top:160px}
 @media(max-width:600px){.semester-jumps{top:66px}.semester-month,.semester-week{scroll-margin-top:150px}}
+
+.select-filters [hidden]{display:none!important}

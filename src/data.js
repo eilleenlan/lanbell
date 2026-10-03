@@ -1,4 +1,4 @@
-export const updatedAt = '2026年9月20日';
+export const updatedAt = '2026年10月3日';
 
 // 115學年度第一學期國中部活動日期；民國115/116年轉為西元2026/2027年。
 // grades: 7=國七、8=國八、9=國九；空陣列代表國中部全體。
@@ -13,7 +13,7 @@ export const events = [
   { start:'2026-09-15', category:'健康', grades:[7], title:'新生尿液健康檢查', tentative:true },
   { start:'2026-09-22', category:'健康', grades:[8], title:'HPV 第一劑疫苗施打' },
   { start:'2026-09-22', category:'一般家長', grades:[9], title:'國九家長會', collapsibleNote:true, note:'• 活動目的：增進學校與家庭間的溝通與合作，協助家長瞭解孩子進入國九階段後的學習情形及班級相關規劃。\n\n• 活動流程：\n　－18:10～18:30 家長報到｜各班指定教室\n　－18:30～20:00 班級親師活動｜各班指定教室\n\n• 9/15（二）前完成出席意願填寫' },
-  { start:'2026-10-02', category:'特定家長', grades:[], title:'家長代表大會', tentative:true },
+  { start:'2026-10-02', category:'特定家長', grades:[], title:'家長代表大會', searchAliases:["家代"], tentative:true, note:"報到時間：18：30~19：00\n開會時間：19：00\n（參考結束時間：20：20）\n開會地點：有田廳\n會議重點：家長委員選舉（含會長、副會長）\n其他：備有點心餐盒" },
   { start:'2026-10-05', end:'2026-10-14', category:'夜間課程/夜自習', grades:[], title:'夜間課程暫停', note:'段考期間' },
   { start:'2026-10-05', end:'2026-10-08', category:'行政', grades:[], title:'9月學生出缺勤資料核對' },
   { start:'2026-10-17', category:'活動', grades:[7,8], title:'桌球賽', note:'國九是否可參加，請與班導確認。', tentative:true },
@@ -35,12 +35,12 @@ export const events = [
   { start:'2027-01-04', end:'2027-01-08', category:'夜間課程/夜自習', grades:[9], title:'國九夜間課程暫停', note:'段考期間' },
   { start:'2027-01-04', end:'2027-01-08', category:'行政', grades:[], title:'115-1學期學生出缺勤資料核對' },
   { start:'2027-01-11', end:'2027-01-19', category:'夜間課程/夜自習', grades:[], title:'夜間課程暫停', note:'段考期間' },
-  { start:'2027-01-18', end:'2027-01-20', category:'畢業', grades:[9], title:'國九教育旅行', note:'國九畢業旅行（畢旅）；已依圖片修訂日期更新' },
+  { start:'2027-01-18', end:'2027-01-20', category:'畢業', grades:[9], title:'國九教育旅行', searchAliases:["畢旅","畢業旅行"], note:'國九畢業旅行（畢旅）；已依圖片修訂日期更新' },
   { start:'2027-01-18', category:'夜間課程/夜自習', grades:[], title:'本週夜自習結束', note:'依期末考時間訂之', tentative:true },
   { start:'2027-01-18', category:'編班', grades:[7,8], title:'本週國際能力轉組' },
   { start:'2027-01-18', category:'編班', grades:[9], title:'本週九直編班' },
   { start:'2027-01-18', category:'編班', grades:[], title:'本週國內班轉國際班測驗' },
-  { start:'2027-01-21', end:'2027-02-02', category:'開學/放假', grades:[], title:'寒期輔導', calendarKind:'winter-course', weekdays:[1,2,3,4,5], note:'．寒輔週一～週五上課，週六、日不用到校。\n．16：10放學。', tentative:true },
+  { start:'2027-01-21', end:'2027-02-02', category:'開學/放假', grades:[], title:'寒期輔導', searchAliases:["寒輔","寒假輔導"], calendarKind:'winter-course', weekdays:[1,2,3,4,5], note:'．寒輔週一～週五上課，週六、日不用到校。\n．16：10放學。', tentative:true },
   { start:'2027-02-11', category:'開學/放假', grades:[], title:'115-2學期開學日', tentative:true },
   // 國七單日田教
   { start:'2026-08-10', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'忠、孝班' },
