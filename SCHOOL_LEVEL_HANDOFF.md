@@ -2,7 +2,7 @@
 
 日期：2026-10-05。最新版本為可愛版：標題「逛逛小鈴鐺」，入口「🔔 小學鈴噹／🔔 國中鈴鐺」，目前學段下方顯示「你在這裡」。請將本文件交給小學網站的協作者。
 
-此可愛版已由使用者確認。小學站請將「你在這裡」放在小學標籤下方，國中標籤作為連結；順序固定為小學、國中。這些是切換入口的文字，不要求更名小學網站。
+此可愛版已由使用者確認。小學站請將「你在這裡」放在小學標籤下方，國中標籤作為連結；順序固定為小學、國中、高中（高中待中學新版發布後啟用）。這些是切換入口的文字，不要求更名小學網站。
 
 ## 可直接使用的工作指示
 
@@ -14,8 +14,9 @@
 | --- | --- | --- |
 | 小學 | https://eilleenlan.github.io/lanbell-elementary-pages/#/ | 顯示「🔔 小學鈴噹」及下方「你在這裡」，不可點擊 |
 | 國中 | https://eilleenlan.github.io/lanbell/#/ | 顯示「🔔 國中鈴鐺」，點擊在同一分頁前往 |
+| 高中 | https://eilleenlan.github.io/lanbell/#/senior | 中學新版發布後顯示「🔔 高中鈴鐺」，點擊在同一分頁前往 |
 
-高中尚未提供網址，先不顯示高中入口，也不放空連結。未來高中完成再同步新增三站入口。
+2026-10-06 更新：高中已整合於中學同一網站，入口為 https://eilleenlan.github.io/lanbell/#/senior 。正式上線需等本次更新發布成功後，小學站再啟用此連結；不要另外建立高中網站或導向前期試作。
 
 ## 國中站已完成的規格
 
@@ -41,6 +42,8 @@
     <span class="school-level-hint">你在這裡</span>
   </span>
   <a href="https://eilleenlan.github.io/lanbell/#/" aria-label="前往國中資訊網站"><span aria-hidden="true">🔔</span><span>國中鈴鐺</span></a>
+  <!-- 中學新版發布後才啟用高中入口 -->
+  <a href="https://eilleenlan.github.io/lanbell/#/senior" aria-label="前往高中資訊網站"><span aria-hidden="true">🔔</span><span>高中鈴鐺</span></a>
 </div>
 ```
 
