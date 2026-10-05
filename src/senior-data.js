@@ -9,6 +9,8 @@ export const seniorSources = {
   trips11: {label:'高二田教日期整理', revised:'2026-06-21'},
 };
 export const seniorEvents = [
+  {id:'s-exam1',start:'2026-10-13',end:'2026-10-14',grades:[10,11,12],category:'考試',title:'高中第一次段考',source:'exams',note:'依高中考試日期整理；使用者確認為全校共同考期，高一、高二、高三皆適用。各年級考科與範圍請以最新公告為準。',searchAliases:['段一','第一次段考']},
+  {id:'s-exam2',start:'2026-11-26',end:'2026-11-27',grades:[10,11,12],category:'考試',title:'高中第二次段考',source:'exams',note:'依高中考試日期整理；使用者確認為全校共同考期，高一、高二、高三皆適用。各年級考科與範圍請以最新公告為準。',searchAliases:['段二','第二次段考']},
   {id:'s-mock1',start:'2026-07-29',end:'2026-07-30',grades:[12],category:'考試',title:'高三第一次模擬考',source:'summer',searchAliases:['模考']},
   {id:'s-parent10',start:'2026-08-06',grades:[10],category:'家長參與',title:'高一家長座談會',tentative:true,source:'summer'},
   {id:'s-photo12',start:'2026-08-07',grades:[12],category:'行政',title:'高三證件照拍攝',tentative:true,source:'summer'},

@@ -1,5 +1,5 @@
 import { seniorOverview, seniorOverviewRange } from './senior-overview.js?v=20261006';
-import { seniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource } from './senior-data.js?v=20261006';
+import { seniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource } from './senior-data.js?v=20261006-exam12';
 
 export const seniorRoutes=[['/senior','高中首頁','⌂'],['/senior/calendar','行事曆','📅'],['/senior/gsat','學測重要日程','🎓']];
 const grades={10:'高一',11:'高二',12:'高三'};
