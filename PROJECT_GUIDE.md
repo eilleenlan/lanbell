@@ -1,5 +1,15 @@
 # 小鈴鐺資訊整合｜專案說明與維護指南
 
+## 2026-10-05 學段切換
+
+目前可愛版顯示「逛逛小鈴鐺」，連結標籤為「🔔 小學鈴噹」，目前學段為「🔔 國中鈴鐺」及下方小字「你在這裡」。鈴鐺圖案 aria-hidden，不影響學段語意。入口至少 52px 高，手機標題獨立一行；仍保留原網址、aria-label 及目前學段標記。
+
+全站共用 render 在頁首下方、非官方提醒上方加入獨立的學段切換列。小學連至 https://eilleenlan.github.io/lanbell-elementary-pages/#/，國中以 aria-current="true" 的非連結文字顯示「你在這裡」；同分頁前往，可由瀏覽器上一頁返回。手機直接顯示，至少 44px 高，允許換行並提供鍵盤焦點樣式。切換列不固定，原頁首及學期月份列高度不變。使用 div + role="navigation" 避免既有全域 nav CSS 與手機選單選取器誤套用。
+
+src/app.js 與 src/styles.css 管理此功能，index.html 同步 CSS／JS 快取版本。高中尚無網址，先不顯示；新增時三站同步更新。保留「小鈴鐺資訊整合（中學）」名稱及既有非官方提醒，系列導覽／名稱／標誌／分享文字不使用校名、校徽或「薇中」。原始公告附件仍屬來源資料，此次未修改附件內容。活動資料及 updatedAt 不變。小學交接見 SCHOOL_LEVEL_HANDOFF.md。
+
+驗證：app.js 語法及 git diff --check 通過。Edge 無頭瀏覽器以 /lanbell/ 子路徑檢查首頁、行事曆、考程與範圍、校服價格，於 1280px／375px／320px 均確認入口網址、同分頁屬性、目前學段非連結、至少 44px 點擊高度及切換列無水平溢出；鍵盤焦點與手機選單通過，未出現 JavaScript 錯誤。截圖位於 outputs/school-level/。未完成線上兩站實際往返測試，使用者已授權提交與推送，發布結果以 GitHub Pages 為準。
+
 閱讀日期：2026-09-05。Repository：https://github.com/eilleenlan/lanbell 。網站：https://eilleenlan.github.io/lanbell/#/ 。本次 checkout 為 `main`，基準 commit `1b9bbd34ecb2c24c31a0c2bcfc63def8646271b5`。
 
 ## 專案定位與目前狀態
