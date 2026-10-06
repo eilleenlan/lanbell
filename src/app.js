@@ -1,9 +1,9 @@
 import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261006-exam12';
 import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261003';
-import { semesterOverview, semester } from './semester.js?v=20261003-sticky';
+import { semesterOverview, semester } from './semester.js?v=20261006-top';
 import { uniforms } from './uniforms.js?v=20260910';
 import { mountExams, examLink } from './exams.js?v=20260930-exam1';
-import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261003-aliases';
+import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261006-evening';
 
 const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服價格','👕']];
 const categoryGroups={
@@ -88,6 +88,7 @@ function monthGrid(filtered){
 }
 function bindMonthActions(){
  document.querySelector('#month-view')?.addEventListener('click',event=>{
+ const top=event.target.closest('[data-overview-top]');if(top){const form=document.querySelector('.calendar-search');const header=document.querySelector('.site-header');document.querySelector('#calendar-search-input')?.focus({preventScroll:true});window.scrollTo({top:window.scrollY+form.getBoundingClientRect().top-header.getBoundingClientRect().height-16,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});return;}
  const jump=event.target.closest('[data-overview-jump]');if(jump){document.getElementById(jump.dataset.overviewJump)?.scrollIntoView({behavior:'smooth',block:'start'});return;}
  const step=event.target.closest('[data-month-step]');if(step){const d=new Date(+state.year,+state.month-1+Number(step.dataset.monthStep),1);state.year=String(d.getFullYear());state.month=String(d.getMonth()+1).padStart(2,'0');render();return;}
  const button=event.target.closest('[data-month-event],[data-month-day]');if(!button)return;
