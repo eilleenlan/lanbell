@@ -1,4 +1,4 @@
-import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261007-g11-exams';
+import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261007-summer';
 import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261003';
 import { semesterOverview, semester } from './semester.js?v=20261007-audience';
 import { uniforms } from './uniforms.js?v=20260910';

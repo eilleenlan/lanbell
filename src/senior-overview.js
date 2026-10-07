@@ -1,5 +1,5 @@
 // Display coverage, not a declaration of holidays or official teaching days.
-export const seniorOverviewRange={start:'2026-07-19',opening:'2026-08-31',end:'2027-02-11'};
+export const seniorOverviewRange={start:'2026-07-05',opening:'2026-08-31',end:'2027-02-11'};
 export function seniorOverview(items,{esc,shift,today,utc,grades,audienceLabel}){
  const range=seniorOverviewRange;
  const short=d=>`${Number(d.slice(5,7))}/${Number(d.slice(8))}`;
