@@ -2,7 +2,7 @@ import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior
 import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261003';
 import { semesterOverview, semester } from './semester.js?v=20261006-top';
 import { uniforms } from './uniforms.js?v=20260910';
-import { mountExams, examLink } from './exams.js?v=20260930-exam1';
+import { mountExams, examLink } from './exams.js?v=20261007-unit';
 import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261006-evening';
 
 const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服價格','👕']];
