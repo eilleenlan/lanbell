@@ -37,3 +37,4 @@
 @media(max-width:600px){.semester-jumps{top:66px}.semester-month,.semester-week{scroll-margin-top:150px}}
 
 .select-filters [hidden]{display:none!important}
+.holiday-exam-reminder{margin:16px 0;padding:16px 20px;border-left:3px solid var(--gold);background:#f3eee3;line-height:1.7;overflow-wrap:anywhere}.holiday-exam-reminder>strong{color:var(--ink)}.holiday-exam-reminder ul{padding-left:20px;margin:10px 0}.holiday-exam-reminder li{margin:10px 0}.holiday-exam-reminder small,.holiday-exam-reminder li span{color:var(--muted);font-size:13px}

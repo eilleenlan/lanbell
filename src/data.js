@@ -133,13 +133,13 @@ export const events = [
   { start:'2027-01-14', end:'2027-01-15', category:'考試-段考', grades:[9], title:'國九期末考' },
   { start:'2027-01-19', end:'2027-01-20', category:'考試-段考', grades:[7,8], title:'段考三', note:'國七、國八；已依圖片修訂日期更新' },
   // 115學年度第一學期連假
-  { start:'2026-09-25', end:'2026-09-28', category:'開學/放假', grades:[], title:'中秋節連假', note:'四天連假' },
+  { start:'2026-09-25', end:'2026-09-28', holidayExamReminder:true, category:'開學/放假', grades:[], title:'中秋節連假', note:'四天連假' },
   { start:'2026-09-28', category:'開學/放假', grades:[], title:'教師節' },
-  { start:'2026-10-09', end:'2026-10-11', category:'開學/放假', grades:[], title:'雙十節調整放假', note:'三天連假' },
-  { start:'2026-10-24', end:'2026-10-26', category:'開學/放假', grades:[], title:'光復節調整放假', note:'三天連假' },
-  { start:'2026-12-25', end:'2026-12-27', category:'開學/放假', grades:[], title:'行憲紀念日連假', note:'三天連假' },
-  { start:'2027-01-01', end:'2027-01-03', category:'開學/放假', grades:[], title:'元旦連假', note:'三天連假' },
-  { start:'2027-02-05', end:'2027-02-10', category:'開學/放假', grades:[], title:'除夕及春節連假', note:'六天連假' },
+  { start:'2026-10-09', end:'2026-10-11', holidayExamReminder:true, category:'開學/放假', grades:[], title:'雙十節調整放假', note:'三天連假' },
+  { start:'2026-10-24', end:'2026-10-26', holidayExamReminder:true, category:'開學/放假', grades:[], title:'光復節調整放假', note:'三天連假' },
+  { start:'2026-12-25', end:'2026-12-27', holidayExamReminder:true, category:'開學/放假', grades:[], title:'行憲紀念日連假', note:'三天連假' },
+  { start:'2027-01-01', end:'2027-01-03', holidayExamReminder:true, category:'開學/放假', grades:[], title:'元旦連假', note:'三天連假' },
+  { start:'2027-02-05', end:'2027-02-10', holidayExamReminder:true, category:'開學/放假', grades:[], title:'除夕及春節連假', note:'六天連假' },
 ];
 
 export const learningGroups = [

@@ -1,3 +1,4 @@
+import {events as juniorCalendarEvents} from './data.js?v=20261007-holiday';
 // Public dates transcribed from the supplied parent-organized images.
 // grades: 10=高一, 11=高二, 12=高三. Every entry has an explicit audience.
 export const seniorUpdatedAt = '2026年10月7日';
@@ -118,3 +119,7 @@ seniorEvents.push(
  ...admissionEvents
 );
 export const audienceLabel=e=>e.audiencePending?'適用年級待確認':e.audience||e.grades.map(g=>({10:'高一',11:'高二',12:'高三'}[g])).join('、');
+
+// 使用者確認連假為跨學段共同安排；只共用明確標記的六筆連假。
+seniorSources.sharedHolidays={label:'家長確認國高中共同連假安排',revised:'2026-10-07'};
+seniorEvents.push(...juniorCalendarEvents.filter(e=>e.holidayExamReminder).map(e=>({id:'s-holiday-'+e.start,start:e.start,end:e.end,title:e.title,note:e.note,grades:[10,11,12],category:'放假',source:'sharedHolidays',holidayExamReminder:true})));

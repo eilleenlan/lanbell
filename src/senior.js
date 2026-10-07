@@ -1,11 +1,12 @@
+import {holidayExamReminder} from './holiday-exams.js?v=20261007';
 import { seniorOverview, seniorOverviewRange } from './senior-overview.js?v=20261007-summer';
-import { seniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource, admissionEvents, audienceLabel } from './senior-data.js?v=20261007-summer';
+import { seniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource, admissionEvents, audienceLabel } from './senior-data.js?v=20261007-holiday';
 
 import { mountExams } from './exams.js?v=20261007-unit';
 import { seniorExamFiles } from './senior-exam-data.js?v=20261007-summer';
 export const seniorRoutes=[['/senior','高中首頁','⌂'],['/senior/calendar','行事曆','📅'],['/senior/exams','考程與範圍','▤'],['/senior/gsat','升學重要日程','🎓']];
 const grades={10:'高一',11:'高二',12:'高三'};
-const categories=['升學','考試','田教','家長參與','健康','行政','活動'];
+const categories=['校外培育／競賽','放假','升學','考試','田教','家長參與','健康','行政','活動'];
 const filter={grade:'all',category:'all',query:'',period:'semester',past:false,view:'overview',month:'2026-10'};
 const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const utc=date=>Date.parse(date+'T00:00:00Z');
@@ -18,10 +19,10 @@ const status=e=>isRange(e)?(e.timing==='week'?'本週安排・實際日期未定
 const eligible=e=>filter.grade==='all'||e.grades.includes(Number(filter.grade));
 const sorted=items=>items.slice().sort((a,b)=>a.start.localeCompare(b.start)||a.id.localeCompare(b.id));
 const sourceText=e=>{const source=seniorSources[e.source];return source?`${source.label}・修訂 ${source.revised.replaceAll('-','/')}`:gsatSource.label;};
-const notice=()=>`<p class="senior-coverage" role="note">目前收錄 ${seniorEvents.filter(e=>e.category!=='升學').length} 筆校內行程與 ${admissionEvents.length} 筆官方升學提醒。待確認對象及週區間已另行標示，其他活動仍在整理。空白日期不代表放假；請以最新公告為準。</p>`;
+const notice=()=>`<p class="senior-coverage" role="note">目前收錄 ${seniorEvents.filter(e=>!['升學','校外培育／競賽'].includes(e.category)).length} 筆校內行程、${seniorEvents.filter(e=>e.category==='校外培育／競賽').length} 筆校外培育／競賽與 ${admissionEvents.length} 筆官方升學提醒。待確認對象及週區間已另行標示，其他活動仍在整理。空白日期不代表放假；請以最新公告為準。</p>`;
 const gradeSelect=()=>`<label class="senior-grade">適用年級<select id="senior-grade"><option value="all" ${filter.grade==='all'?'selected':''}>全部高中</option>${Object.entries(grades).map(([g,l])=>`<option value="${g}" ${filter.grade===g?'selected':''}>${l}</option>`).join('')}</select></label>`;
 const seniorExamLink=e=>{const files=seniorExamFiles.filter(x=>x.date===e.start||(['s-intl-exam1','s-advance10-science'].includes(e.id)&&x.id==='115-first-exam1-g10'));return files.map(x=>`<a class="google-calendar-link" href="#/senior/exams?year=${x.year}&grade=${x.grade}&term=${encodeURIComponent(x.term)}&exam=${encodeURIComponent(x.exam)}">查看${grades[x.grade]}考程與範圍</a>`).join('');};
-const card=e=>`<article class="senior-event${ended(e)?' senior-ended':''}" id="${esc(e.id)}"><time datetime="${e.start}">${dates(e)}</time><div><div class="senior-tags"><span>${esc(e.category)}</span><span class="${e.audiencePending?'senior-tentative':''}">${esc(audienceLabel(e))}</span>${isRange(e)?`<span>${e.timing==='week'?'週區間・實際日期未定':'區間安排・實際日期依公告'}</span>`:''}${e.tentative?'<span class="senior-tentative">暫定</span>':''}${ended(e)?'<span>已結束</span>':''}</div><h2>${esc(e.title)}</h2>${e.note?`<p>${esc(e.note)}</p>`:''}${seniorExamLink(e)}<details><summary>來源與加入日曆</summary><p>${esc(sourceText(e))}${seniorSources[e.source]?.url?`・<a href="${esc(seniorSources[e.source].url)}" target="_blank" rel="noopener noreferrer">官方公告 ↗</a>`:''}</p>${isRange(e)?'<p>實際日期未定，暫不提供加入 Google 日曆。</p>':`<a class="google-calendar-link" target="_blank" rel="noopener noreferrer" href="${googleLink(e)}">＋ 加入 Google 日曆</a>`}</details></div></article>`;
+const card=e=>`<article class="senior-event${ended(e)?' senior-ended':''}" id="${esc(e.id)}"><time datetime="${e.start}">${dates(e)}</time><div><div class="senior-tags"><span>${esc(e.category)}</span><span class="${e.audiencePending?'senior-tentative':''}">${esc(audienceLabel(e))}</span>${isRange(e)?`<span>${e.timing==='week'?'週區間・實際日期未定':'區間安排・實際日期依公告'}</span>`:''}${e.tentative?'<span class="senior-tentative">暫定</span>':''}${ended(e)?'<span>已結束</span>':''}</div><h2>${esc(e.title)}</h2>${e.note?`<p>${esc(e.note)}</p>`:''}${holidayExamReminder(e,[...seniorEvents.filter(x=>/^s-(exam[123]|mock[1234]|final12)$/.test(x.id)),gsatExam],[10,11,12])}${seniorExamLink(e)}<details><summary>來源與加入日曆</summary><p>${esc(sourceText(e))}${seniorSources[e.source]?.url?`・<a href="${esc(seniorSources[e.source].url)}" target="_blank" rel="noopener noreferrer">官方公告 ↗</a>`:''}</p>${isRange(e)?'<p>實際日期未定，暫不提供加入 Google 日曆。</p>':`<a class="google-calendar-link" target="_blank" rel="noopener noreferrer" href="${googleLink(e)}">＋ 加入 Google 日曆</a>`}</details></div></article>`;
 const googleLink=e=>'https://calendar.google.com/calendar/render?'+new URLSearchParams({action:'TEMPLATE',text:e.title,dates:e.timeStart?e.start.replaceAll('-','')+'T'+e.timeStart.replace(':','')+'00/'+e.start.replaceAll('-','')+'T'+e.timeEnd.replace(':','')+'00':e.start.replaceAll('-','')+'/'+shift(e.end||e.start,1).replaceAll('-',''),ctz:'Asia/Taipei',details:[audienceLabel(e),e.note||'',sourceText(e),'非官方整理，請以最新公告為準。'].join('\n')});
 const empty=text=>`<p class="senior-empty" role="status">${text}</p>`;
 function gsatSummary(){
