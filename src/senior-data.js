@@ -45,3 +45,37 @@ export const gsatMilestones = [
  {...gsatExam,status:'官方日程',note:'2027/1/22（五）～1/24（日）。實際應試科目、時間與試場請以大考中心公告為準。'},
  {id:'gsat-score',title:'成績公布與後續申請',status:'整理中',note:'成績查詢及各招生管道日程會分批核對後加入。'},
 ];
+
+// Confirmed discussion decisions; pending audiences are visible to all senior grades.
+const pendingNote='此為國際能力課程相關安排，適用年級與班別尚待確認。暫列於各高中年級供查閱，不代表所有學生皆須參加；請依個人課程安排及學校、導師公告確認。';
+const windowNote='此為提前考科安排區間，各年級實際考科、日期與時間將依後續公告更新；不代表區間內每天都有考試。';
+const mockNote='本週預計安排英聽模擬考，實際實施日期與時間尚未公告，請自行留意學校或導師通知。';
+seniorSources.advance={label:'第一次段考提前考科公告（使用者提供）',revised:'2026-10-06'};
+seniorSources.ceec={...gsatSource,revised:'2026-10-06'};
+seniorSources.cape={label:'大學術科考試委員會｜116學年度重要日程',url:'https://www.cape.edu.tw/116學年度大學術科考試-重要日程/',revised:'2026-10-06'};
+export const admissionEvents=[
+ {id:'a-listen-reg1',start:'2026-09-03',end:'2026-09-10',title:'英聽第一次考試・官方報名',examType:'英聽',kind:'報名',source:'ceec'},
+ {id:'a-listen-exam1',start:'2026-10-17',title:'高中英語聽力測驗・第一次正式考試',examType:'英聽',source:'ceec'},
+ {id:'a-listen-reg2',start:'2026-11-04',end:'2026-11-10',title:'英聽第二次考試・官方報名',examType:'英聽',kind:'報名',source:'ceec'},
+ {id:'a-listen-exam2',start:'2026-12-12',title:'高中英語聽力測驗・第二次正式考試',examType:'英聽',source:'ceec'},
+ {id:'a-gsat-reg',start:'2026-10-27',end:'2026-11-10',title:'學測・官方報名',examType:'學測',kind:'報名',source:'ceec'},
+ {id:'a-cape-reg',start:'2026-10-27',end:'2026-11-10',title:'大學術科・官方報名',examType:'術科',kind:'報名',source:'cape',audience:'高三・需報考術科者'},
+ {...gsatExam,id:'a-gsat-exam',examType:'學測',source:'ceec'},
+].map(e=>({...e,grades:[12],category:'升學',note:(e.examType==='術科'?'僅適用需報考音樂、美術或體育術科者。':'')+(e.kind==='報名'?'官方報名期間，截止日下午5時。校內集體報名期限可能較早，請自行留意學校或導師通知。':'正式考試，實際考程與試場請以官方公告為準。'),...e}));
+seniorEvents.push(
+ {id:'s-advance12-writing',start:'2026-10-01',grades:[12],category:'考試',title:'高三提前考科・英文寫作',source:'advance',timeStart:'08:10',timeEnd:'09:00',note:'第1節（08:10～09:00）。'},
+ {id:'s-advance10-science',start:'2026-10-07',grades:[10],category:'考試',title:'高一提前考科・科學研究大探索／醫學研究',source:'advance',timeStart:'08:10',timeEnd:'09:00',note:'第1節（08:10～09:00），實際應試科目依個人課程安排。'},
+ {id:'s-intl-exam1',start:'2026-10-05',grades:[10],category:'考試',title:'高一國際能力段考一',source:'advance',timeStart:'15:10',timeEnd:'16:00',note:'第7節（15:10～16:00）。公告適用高一、國七、國八；本頁只顯示高中範圍。'},
+ {id:'s-advance2-window',start:'2026-11-09',end:'2026-11-20',grades:[10,11,12],category:'考試',title:'提前考科安排區間（段考二前）',timing:'window',source:'exams',note:windowNote},
+ {id:'s-advance3-window',start:'2027-01-04',end:'2027-01-15',grades:[10,11,12],category:'考試',title:'提前考科安排區間（期末）',timing:'window',source:'exams',note:windowNote},
+ {id:'s-midterm-week',start:'2026-11-01',end:'2026-11-07',grades:[10,11,12],audiencePending:true,category:'考試',title:'期中考科考試（本週安排）',timing:'week',source:'exams',note:'原表列11/2當週；實施日期、考科與適用年級尚待確認，請自行留意學校或導師公告。'},
+ {id:'s-intl-oral1',start:'2026-09-29',end:'2026-10-08',grades:[10,11,12],audiencePending:true,category:'考試',title:'國際能力口試安排',timing:'window',source:'exams',note:pendingNote},
+ {id:'s-intl-project',start:'2026-11-02',end:'2026-11-13',grades:[10,11,12],audiencePending:true,category:'考試',title:'國際能力專題報告安排',timing:'window',source:'exams',note:pendingNote},
+ {id:'s-intl-oral-final',start:'2027-01-04',end:'2027-01-15',grades:[10,11,12],audiencePending:true,category:'考試',title:'國際能力期末口試安排',timing:'window',source:'exams',note:pendingNote},
+ {id:'s-intl-final',start:'2027-01-15',grades:[10,11,12],audiencePending:true,category:'考試',title:'國際能力期末考',source:'exams',note:pendingNote},
+ {id:'s-listen-mock-week',start:'2026-09-27',end:'2026-10-03',grades:[12],category:'考試',title:'高三英聽模擬考（本週安排）',timing:'week',source:'exams',note:mockNote+'原始表為9/27～10/3週，不將9/29視為單日考試日期。'},
+ {id:'s-final12-geng',start:'2026-12-28',end:'2026-12-31',grades:[12],audience:'高三庚班',category:'考試',title:'高三庚班期末考週',timing:'window',source:'exams',note:'僅適用高三庚班，實際考科與實施日期依班級公告。'},
+ {id:'s-score12-geng',start:'2027-01-03',end:'2027-01-09',grades:[12],audience:'高三庚班',category:'行政',title:'高三庚班學習成績結算（本週）',timing:'week',source:'exams',note:'原表列1/4當週，僅適用高三庚班；本週進行結算，未指定單日。'},
+ ...admissionEvents
+);
+export const audienceLabel=e=>e.audiencePending?'適用年級待確認':e.audience||e.grades.map(g=>({10:'高一',11:'高二',12:'高三'}[g])).join('、');

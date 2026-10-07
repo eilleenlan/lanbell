@@ -11,3 +11,19 @@
 @media(max-width:600px){.senior-site main{padding-top:24px}.senior-gsat{padding:20px}.senior-gsat-summary>strong{font-size:30px}.senior-gsat-summary h2{font-size:21px}.senior-event{grid-template-columns:1fr;padding:18px;gap:6px}.senior-filter-row>label{min-width:0;flex-basis:calc(50% - 8px)}.senior-filter-row .senior-search{flex-basis:100%}.senior-tools{padding:16px}.senior-weekday,.senior-day,.senior-month-blank{padding:5px 3px}.senior-day{min-height:90px}.senior-day button{font-size:11px;padding:8px 3px}.senior-month-nav h2{font-size:18px}.senior-month-nav button{padding:8px}.school-level-switch .school-level-label{width:100%}}
 
 .senior-overview .semester-jumps{position:sticky;top:76px}.senior-overview .senior-legend-other{border-color:#a6b5bf}.senior-overview .semester-month,.senior-overview .semester-week{scroll-margin-top:160px}@media(max-width:600px){.senior-overview .semester-jumps{top:66px}.senior-overview .semester-month,.senior-overview .semester-week{scroll-margin-top:150px}}
+
+.senior-event.senior-ended{background:#f2f1ef;border-color:#d5d2ce;border-left-color:#aaa6a0}
+.senior-event.senior-ended>time,.senior-event.senior-ended h2,.senior-event.senior-ended summary,.senior-event.senior-ended a{color:#68645f}
+.senior-event.senior-ended p{color:#706b65}
+.senior-event.senior-ended .senior-tags>span{background:#e5e2de;color:#625e58}
+.senior-overview .semester-event.senior-ended,.senior-day button.senior-ended{background:#efedea;border-color:#d5d2ce;border-left-color:#aaa6a0;color:#68645f}
+.senior-overview .semester-event.senior-ended time,.senior-overview .semester-event.senior-ended small,.senior-overview .semester-event.senior-ended em{color:#68645f}
+
+.senior-admission-jumps{animation:none;transform:none;margin-top:20px}
+.senior-admission-jumps button[aria-current=location]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.senior-admission-group,#senior-admission-top{scroll-margin-top:160px}
+.senior-admission-group>h2{color:var(--ink);font:700 28px 'Noto Serif TC',serif;margin:32px 0 18px}
+@media(max-width:600px){.senior-admission-group,#senior-admission-top{scroll-margin-top:150px}}
+
+#senior-tools{scroll-margin-top:96px}
+@media(max-width:600px){#senior-tools{scroll-margin-top:86px}}

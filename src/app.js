@@ -1,4 +1,4 @@
-import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261006-exam12';
+import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261006-filter-jump';
 import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261003';
 import { semesterOverview, semester } from './semester.js?v=20261006-top';
 import { uniforms } from './uniforms.js?v=20260910';
