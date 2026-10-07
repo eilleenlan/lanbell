@@ -1,7 +1,8 @@
 // Public dates transcribed from the supplied parent-organized images.
 // grades: 10=高一, 11=高二, 12=高三. Every entry has an explicit audience.
-export const seniorUpdatedAt = '2026年10月6日';
+export const seniorUpdatedAt = '2026年10月7日';
 export const seniorSources = {
+ summerExam10:{label:'高一暑期學科競賽考程與範圍整理',revised:'2026-08-03'},
   summer: {label:'高中暑期日期整理', revised:'2026-06-21'},
   exams: {label:'高中考試日期整理（修訂）', revised:'2026-07-29'},
   activities: {label:'高中活動日期整理（修訂）', revised:'2026-07-29'},
@@ -9,6 +10,7 @@ export const seniorSources = {
   trips11: {label:'高二田教日期整理', revised:'2026-06-21'},
 };
 export const seniorEvents = [
+ {id:'s-summer10',start:'2026-08-21',grades:[10],category:'考試',title:'高一暑期學科競賽',source:'summerExam10',note:'已結束行程供備查；已收錄高一考程與範圍。'},
   {id:'s-exam1',start:'2026-10-13',end:'2026-10-14',grades:[10,11,12],category:'考試',title:'高中第一次段考',source:'exams',note:'依高中考試日期整理；使用者確認為全校共同考期，高一、高二、高三皆適用。各年級考科與範圍請以最新公告為準。',searchAliases:['段一','第一次段考']},
   {id:'s-exam2',start:'2026-11-26',end:'2026-11-27',grades:[10,11,12],category:'考試',title:'高中第二次段考',source:'exams',note:'依高中考試日期整理；使用者確認為全校共同考期，高一、高二、高三皆適用。各年級考科與範圍請以最新公告為準。',searchAliases:['段二','第二次段考']},
   {id:'s-mock1',start:'2026-07-29',end:'2026-07-30',grades:[12],category:'考試',title:'高三第一次模擬考',source:'summer',searchAliases:['模考']},

@@ -1,4 +1,4 @@
-import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261006-filter-jump';
+import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261007-g11-exams';
 import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261003';
 import { semesterOverview, semester } from './semester.js?v=20261006-top';
 import { uniforms } from './uniforms.js?v=20260910';
@@ -138,7 +138,7 @@ function render(resetScroll=false){
   const isSenior=path.startsWith('/senior');
   const displayRoutes=isSenior?seniorRoutes:routes;
   document.title='小鈴鐺資訊整合（'+(isSenior?'高中':'國中')+'）';
-  const pages={'/uniforms':uniforms,'/':home,'/calendar':calendar,'/exams':()=>'<div id="exam-root"></div>','/senior':()=>seniorPage('/senior'),'/senior/calendar':()=>seniorPage('/senior/calendar'),'/senior/gsat':()=>seniorPage('/senior/gsat'),'/learning':learning,'/affairs':school,'/notices':notice};
+  const pages={'/uniforms':uniforms,'/':home,'/calendar':calendar,'/exams':()=>'<div id="exam-root"></div>','/senior':()=>seniorPage('/senior'),'/senior/calendar':()=>seniorPage('/senior/calendar'),'/senior/exams':()=>seniorPage('/senior/exams'),'/senior/gsat':()=>seniorPage('/senior/gsat'),'/learning':learning,'/affairs':school,'/notices':notice};
   root.innerHTML=`<div class="site-shell ${isSenior?'senior-site':''}"><header class="site-header"><a class="brand" href="${isSenior?'#/senior':'#/'}"><b>◆</b><span>小鈴鐺資訊整合（中學）</span></a><button class="menu-button" aria-label="切換導覽">☰</button><nav aria-label="主要導覽">${displayRoutes.map(([p,l,i])=>`<a class="${path===p?'active':''}" href="#${p}"><b>${i}</b><span>${l}</span></a>`).join('')}</nav></header><div class="school-level-switch" role="navigation" aria-label="切換學段"><span class="school-level-label">逛逛小鈴鐺</span><a href="https://eilleenlan.github.io/lanbell-elementary-pages/#/" aria-label="前往小學資訊網站"><span aria-hidden="true">🔔</span><span>小學鈴噹</span></a>${[['#/','國中'],['#/senior','高中']].map(([href,label])=>(label==='高中')===isSenior?`<span class="school-level-current" aria-current="true"><span><span aria-hidden="true">🔔</span> ${label}鈴鐺</span><span class="school-level-hint">你在這裡</span></span>`:`<a href="${href}" aria-label="前往${label}資訊網站"><span aria-hidden="true">🔔</span><span>${label}鈴鐺</span></a>`).join('')}</div><div class="site-disclaimer" role="note"><p>本站為家長整理的<strong>非官方資訊網站</strong>，內容僅供參考；如與學校公告有差異，請以<strong>學校最新公告為準</strong>。</p><p>資料仍在陸續整理與補充中，目前尚未完整收錄。</p></div><main>${pages[path]()}</main><footer>非官方網站，純屬家長交流參考，一切資訊以學校最新公告為準<span>最後更新：${isSenior?seniorUpdatedAt:updatedAt}</span></footer></div>`;
   document.querySelector('.menu-button').onclick=()=>document.querySelector('.site-header nav').classList.toggle('open');
   if(isSenior){mountSenior(path);if(resetScroll&&!new URLSearchParams(location.hash.split('?')[1]||'').has('event'))window.scrollTo(0,0);return;}
