@@ -14,3 +14,6 @@
 .school-level-current{flex-direction:column;gap:1px;background:var(--ink);border-color:var(--ink);color:#fff}
 .school-level-hint{font-size:11px;font-weight:500;line-height:1.4}
 @media(max-width:600px){.school-level-switch{padding:10px 16px;gap:6px}.school-level-label{width:100%;margin-right:0}.school-level-switch>a,.school-level-current{padding:8px 12px}}
+
+
+.site-disclaimer p{margin:0;text-wrap:pretty}.site-disclaimer p+p{margin-top:6px}.site-disclaimer strong{font-weight:600}
