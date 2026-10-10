@@ -27,3 +27,5 @@
 
 #senior-tools{scroll-margin-top:96px}
 @media(max-width:600px){#senior-tools{scroll-margin-top:86px}}
+
+.senior-reference-note{margin:1.5rem 0;padding:1.25rem;border:1px solid #d9d1df;border-radius:8px;background:#f4f1f5;overflow-wrap:anywhere}.senior-reference-note h3{margin:.6rem 0}.senior-reference-note p{line-height:1.8}.senior-reference-note a{color:#66517b;text-decoration:underline}

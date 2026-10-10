@@ -1,8 +1,15 @@
-import {events as juniorCalendarEvents} from './data.js?v=20261007-holiday';
+import {events as juniorCalendarEvents} from './data.js?v=20261008-school-wide';
 // Public dates transcribed from the supplied parent-organized images.
 // grades: 10=高一, 11=高二, 12=高三. Every entry has an explicit audience.
-export const seniorUpdatedAt = '2026年10月7日';
+export const seniorUpdatedAt = '2026年10月10日';
 export const seniorSources = {
+ exam12:{label:'高三第一次段考考程與範圍整理',revised:'2026-10-10',checkedAt:'2026-10-10'},
+ week1:{label:'115學年度第一學期原始行事曆・第一週處室公告（家長提供截圖）',checkedAt:'2026-10-08'},
+ntuMathRegistration:{"label":"臺大數學組115招生簡章｜公立高中轉知","url":"https://www.fhsh.tp.edu.tw/news/台灣大學數學系夏俊雄教授承辦教育部115學年度「/","checkedAt":"2026-10-08"},
+nthuMath:{"label":"清大數學組115招生簡章｜公立高中轉知","url":"https://www.ngsh.tp.edu.tw/p/406-1000-25615,r12.php","checkedAt":"2026-10-08"},
+nthuChem:{"label":"清大化學組115招生考試｜官方考前通知","url":"https://chem.site.nthu.edu.tw/p/406-1328-314176,r2541.php","checkedAt":"2026-10-08"},
+sinicaLife:{"label":"中研院高中生命科學研究人才培育計畫｜官方招生時程","url":"https://hispj.ipmb.sinica.edu.tw/","checkedAt":"2026-10-08"},
+ ntuMath:{label:'臺大北區高中學生科學研究人才培育計畫（數學組）｜官方應試公告',revised:'2026-09-03',checkedAt:'2026-10-07',url:"https://sites.google.com/math.ntu.edu.tw/mathntu/最新消息/115-1-招生考試說明與應試提醒"},
  summerExam10:{label:'高一暑期學科競賽考程與範圍整理',revised:'2026-08-03'},
   summer: {label:'高中暑期日期整理', revised:'2026-06-21'},
   exams: {label:'高中考試日期整理（修訂）', revised:'2026-07-29'},
@@ -11,6 +18,19 @@ export const seniorSources = {
   trips11: {label:'高二田教日期整理', revised:'2026-06-21'},
 };
 export const seniorEvents = [
+{"id":"s-week1-science-fair-registration","start":"2026-08-31","end":"2026-09-04","grades":[10,11,12],"audiencePending":true,"category":"活動","title":"校內科展報名","note":"原行事曆列8/31～9/4校內科展報名。高中適用年級與參加資格未明列，供有意參加者查閱；報名方式、截止時間及資格請依學校公告確認。","searchAliases":["科學展覽","科展報名"],"source":"week1"},
+{"id":"s-week1-mackay-camp","start":"2026-09-03","end":"2026-09-04","grades":[11],"audience":"高二自然組・參加者","category":"活動","title":"高二自然組馬偕醫學營","note":"依原行事曆列9/3～9/4。僅適用高二自然組參加本營隊者，不代表自然組全體均須參加；集合、地點與個人安排請依學校或導師通知。","searchAliases":["醫學營","馬偕"],"source":"week1"},
+{"id":"s-week1-tmu-camp","start":"2026-09-03","end":"2026-09-04","grades":[10],"audience":"高一戊、己班・參加者","category":"活動","title":"高一戊、己班北醫醫學研習營","note":"依原行事曆列9/3～9/4。限高一戊、己班相關參加者；集合、地點與個人安排請依學校或導師通知。","searchAliases":["醫學營","醫學研習營","北醫","臺北醫學大學","台北醫學大學"],"source":"week1"},
+{"id":"s-week1-mountain-course","start":"2026-08-30","end":"2026-09-05","grades":[10,11,12],"audiencePending":true,"category":"活動","title":"山野探索課程開始上課（本週）","timing":"week","note":"原行事曆第一週列課程開始，未指定開課單日或完整適用年級；此區間僅表示公告所屬週，不代表每天上課。僅適用參加課程者，實際開課日期及課程安排請依公告確認。","searchAliases":["培訓課程","山野課程"],"source":"week1"},
+{"id":"s-week1-physics-training","start":"2026-08-30","end":"2026-09-05","grades":[10,11],"audience":"高一、高二・物奧培訓班參加者","category":"活動","title":"高一、高二物奧培訓班開始上課（本週）","timing":"week","note":"原行事曆列高一、高二物奧培訓班於第一週開始，未指定開課單日；此區間不代表每天上課。僅適用參加培訓者，實際開課日期與安排請依學校或任課教師公告確認。","searchAliases":["物理奧林匹亞","物理奧林匹亞培訓","培訓課程"],"source":"week1"},
+{"grades":[10,11],"audiencePending":false,"category":"校外培育／競賽","id":"s-ntu-math-reg115","start":"2026-08-12","end":"2026-08-31","audience":"高一、高二・有意報名者","title":"臺大科學研究人才培育計畫・數學組報名","source":"ntuMathRegistration","note":"校外數學培育課程選拔。報名8/12 10:00起至8/31 17:00止；依正式轉知公告收錄，原學校行事曆暫列9/1不作正式截止日。資格及申請方式以主辦單位當年度簡章為準。","searchAliases":["科學人才培育計畫","科學研究人才培育","培育課程","台大","臺大"]},
+{"grades":[10,11,12],"audiencePending":true,"category":"校外培育／競賽","id":"s-nthu-math-reg115","start":"2026-08-10","end":"2026-08-31","title":"清大高中科學研究人才培育計畫・數學組報名","source":"nthuMath","note":"校外數學培育課程選拔；報名8/10～8/31。僅供有意申請或已報名者查閱，非全校必考或大學入學考試。適用年級與資格請依115學年度簡章確認。","searchAliases":["科學人才培育計畫","科學研究人才培育","培育課程","清華大學","清華","清大"]},
+{"grades":[10,11,12],"audiencePending":true,"category":"校外培育／競賽","id":"s-nthu-math-exam115","start":"2026-09-06","timeStart":"14:00","timeEnd":"17:00","title":"清大高中科學研究人才培育計畫・數學組招生筆試","source":"nthuMath","note":"筆試14:00～17:00，臺北南山中學或新竹清華大學考場，個人考場依主辦通知。僅適用已報名且符合資格者。僅供有意申請或已報名者查閱，非全校必考或大學入學考試。適用年級與資格請依115學年度簡章確認。","searchAliases":["科學人才培育計畫","科學研究人才培育","培育課程","清華大學","清華","清大"]},
+{"grades":[10,11,12],"audiencePending":true,"category":"校外培育／競賽","id":"s-nthu-chem-exam115","start":"2026-09-12","title":"清大高中科學研究人才培育計畫・化學組招生筆試","source":"nthuChem","note":"校外化學培育課程選拔，與清華盃化學競賽不同。13:30開始，結束時間未核對，日曆僅作當日提醒；新竹清華大學化學館及工程一館，個人考場依通知。報名截止日尚未收錄。僅供有意申請或已報名者查閱，非全校必考或大學入學考試。適用年級與資格請依115學年度簡章確認。","searchAliases":["科學人才培育計畫","科學研究人才培育","培育課程","清華大學","清華","清大"]},
+{"grades":[10,11,12],"audiencePending":true,"category":"校外培育／競賽","id":"s-sinica-life-reg115","start":"2026-08-03","end":"2026-09-04","title":"中研院高中生命科學研究人才培育計畫・報名","source":"sinicaLife","note":"網路報名至9/4中午12:00；資料及郵政匯票寄送期限為9/4（以當日郵戳為憑）。原學校行事曆暫列9/5，依官方時程修正。僅供有意申請或已報名者查閱，非全校必考或大學入學考試。適用年級與資格請依115學年度簡章確認。","searchAliases":["科學人才培育計畫","科學研究人才培育","培育課程","中研院","生命科學"]},
+{"grades":[10,11,12],"audiencePending":true,"category":"校外培育／競賽","id":"s-sinica-life-written115","start":"2026-09-19","timeStart":"10:00","timeEnd":"11:40","title":"中研院高中生命科學研究人才培育計畫・筆試","source":"sinicaLife","note":"筆試10:00～11:40，考場與准考證請至主辦網站查詢。僅適用已報名且符合資格者。僅供有意申請或已報名者查閱，非全校必考或大學入學考試。適用年級與資格請依115學年度簡章確認。","searchAliases":["科學人才培育計畫","科學研究人才培育","培育課程","中研院","生命科學"]},
+{"grades":[10,11,12],"audiencePending":true,"category":"校外培育／競賽","id":"s-sinica-life-oral115","start":"2026-10-11","title":"中研院高中生命科學研究人才培育計畫・口試","source":"sinicaLife","note":"僅適用通過筆試並獲口試通知者；地點為中央研究院植物暨微生物學研究所，個人報到時間與細節依主辦通知。僅供有意申請或已報名者查閱，非全校必考或大學入學考試。適用年級與資格請依115學年度簡章確認。","searchAliases":["科學人才培育計畫","科學研究人才培育","培育課程","中研院","生命科學"]},
+ {"id":"s-ntu-math-selection115","start":"2026-09-06","grades":[10,11],"audience":"高一、高二・已報名此計畫者","category":"校外培育／競賽","title":"臺大科學研究人才培育計畫・數學組招生考試","source":"ntuMath","timeStart":"10:30","timeEnd":"12:10","searchAliases":["科學人才培育計畫","科學研究人才培育","臺大數學組","台大","培育課程","招生考試"],"note":"校外數學培育課程的學員選拔，主要面向對數學及科學研究有興趣的高一、高二學生；僅適用已報名者，不是全校必考或大學入學考試。原學校行事曆暫列8/31，本筆依臺大115學年度官方應試公告收錄9/6（10:30～12:10），地點為臺大校總區天文數學館。已結束行程供備查；各年度招生資格、日期與課程請以主辦單位公告為準。"},
  {"id":"s-study-canada","start":"2026-07-10","grades":[10,11,12],"audiencePending":true,"category":"活動","title":"加拿大遊學團返臺","source":"summer","searchAliases":["遊學團","加拿大團","暑期國際遊學團"],"note":"暑期遊學團；整理圖列行程6/21～7/10、7/10返臺。僅適用參團者。"},
  {"id":"s-study-usa","start":"2026-07-11","grades":[10,11,12],"audiencePending":true,"category":"活動","title":"美國遊學團返臺","source":"summer","searchAliases":["遊學團","美國團","暑期國際遊學團"],"note":"依今年暑期行事曆列為7/11返臺；前一學期曾暫定7/12，可能為後續調整，實際返臺日期請以遊學團通知為準。僅適用參團者。"},
  {"id":"s-study-uk","start":"2026-07-22","grades":[10,11,12],"audiencePending":true,"category":"活動","title":"英國遊學團返臺","source":"summer","searchAliases":["遊學團","英國團","暑期國際遊學團"],"note":"暑期遊學團；整理圖列行程7/1～7/22、7/22返臺。僅適用參團者。"},
@@ -20,9 +40,8 @@ export const seniorEvents = [
  {"id":"s-summer-makeup-list","start":"2026-07-26","end":"2026-08-01","grades":[10,11,12],"audiencePending":true,"category":"行政","title":"公告高中補考名單（本週）","timing":"week","source":"summer","note":"原圖列7/27當週，未指定公告單日。原整理圖未明列高中適用年級或班別，僅供查閱；實際參加對象請依學校或導師公告確認。"},
  {"id":"s-summer10-course","start":"2026-08-02","end":"2026-08-08","grades":[10],"category":"行政","title":"高一新生課業輔導課程開始（本週）","timing":"week","source":"summer","note":"原圖列8/3當週，未指定開課單日；實際日期及參加安排依公告。"},
  {"id":"s-parent-geng","start":"2026-08-06","grades":[10,12],"audience":"高一庚班、高三庚班","category":"家長參與","title":"高一庚班、高三庚班家長會（暫）","tentative":true,"source":"summer","note":"原圖列「一庚／三庚家長會」，屬高中暑期整理；依班別標示，不擴大至全年級。實際安排以班級公告為準。"},
- {"id":"s-summer-competition-pending","start":"2026-08-21","grades":[11,12],"audiencePending":true,"category":"考試","title":"暑期學科競賽（高二、高三適用待確認）","source":"summer","note":"原暑期圖未註明適用年級。高一已由考程原圖確認並另列；此筆供高二、高三查閱，不代表兩個年級均須參加，請依公告確認。"},
  {"id":"s-summer-end","start":"2026-08-21","grades":[10,11,12],"category":"行政","title":"暑期輔導結束","source":"summer","searchAliases":["暑輔結束"],"note":"僅適用參加暑期輔導者；依暑期整理圖所列結束日。"},
- {"id":"s-opening1","start":"2026-08-31","grades":[10,11,12],"audiencePending":true,"category":"行政","title":"開學日（暫）","tentative":true,"source":"activities","note":"夜自習開始；實際參加對象及安排依公告。 原整理圖未明列完整適用年級或班別，暫供各高中年級查閱；是否適用請依個人課程安排及學校、導師公告確認。"},
+{"id":"s-opening1","start":"2026-08-31","grades":[10,11,12],"category":"行政","title":"開學日","source":"activities","note":"國高中同步開學，高中適用高一、高二、高三；依家長補充確認。夜自習亦於本日開始，參加對象及安排請依個人課程與學校公告確認。"},
  {"id":"s-evening-start","start":"2026-09-14","grades":[10,11,12],"audiencePending":true,"category":"行政","title":"夜間課程開始","source":"activities","note":"僅適用參加夜間課程者。 原整理圖未明列完整適用年級或班別，暫供各高中年級查閱；是否適用請依個人課程安排及學校、導師公告確認。"},
  {"id":"s-parent-representatives","start":"2026-10-02","grades":[10,11,12],"audiencePending":true,"category":"家長參與","title":"家長代表大會","tentative":true,"source":"activities","note":"僅適用家長代表。 原整理圖未明列完整適用年級或班別，暫供各高中年級查閱；是否適用請依個人課程安排及學校、導師公告確認。"},
  {"id":"s-evening-pause1","start":"2026-10-05","end":"2026-10-14","grades":[10,11,12],"audiencePending":true,"category":"行政","title":"夜間課程暫停","source":"activities","note":"僅適用原有夜間課程安排；不是全校停課。 原整理圖未明列完整適用年級或班別，暫供各高中年級查閱；是否適用請依個人課程安排及學校、導師公告確認。"},
@@ -48,7 +67,7 @@ export const seniorEvents = [
  {"id":"s-winter-tutoring","start":"2027-01-21","end":"2027-02-02","grades":[10,11,12],"audiencePending":true,"category":"行政","title":"寒期輔導（暫）","tentative":true,"timing":"window","source":"activities","note":"修訂由1/20開始改為1/21；各年級適用範圍、實際上課日與週末安排依公告，不代表區間內每天上課。 原整理圖未明列完整適用年級或班別，暫供各高中年級查閱；是否適用請依個人課程安排及學校、導師公告確認。"},
  {"id":"s-badminton","start":"2027-01-30","grades":[10,11,12],"audiencePending":true,"category":"活動","title":"115-2羽球賽","tentative":true,"source":"activities","note":"參賽對象依公告。 原整理圖未明列完整適用年級或班別，暫供各高中年級查閱；是否適用請依個人課程安排及學校、導師公告確認。"},
  {"id":"s-opening2","start":"2027-02-11","grades":[10,11,12],"audiencePending":true,"category":"行政","title":"開學日（暫）","tentative":true,"source":"activities","note":"115-2開學安排依最新公告確認。 原整理圖未明列完整適用年級或班別，暫供各高中年級查閱；是否適用請依個人課程安排及學校、導師公告確認。"},
- {id:'s-summer10',start:'2026-08-21',grades:[10],category:'考試',title:'高一暑期學科競賽',source:'summerExam10',note:'已結束行程供備查；已收錄高一考程與範圍。'},
+ {id:'s-summer10',start:'2026-08-21',grades:[10,11,12],category:'考試',title:'暑期學科競賽',source:'summerExam10',note:'適用高一、高二、高三；高二、高三適用範圍依家長補充確認。已收錄高一考程與範圍，高二、高三詳細考程尚未收錄，請依各年級公告確認。已結束行程供備查。'},
   {id:'s-exam1',start:'2026-10-13',end:'2026-10-14',grades:[10,11,12],category:'考試',title:'高中第一次段考',source:'exams',note:'依高中考試日期整理；使用者確認為全校共同考期，高一、高二、高三皆適用。各年級考科與範圍請以最新公告為準。',searchAliases:['段一','第一次段考']},
   {id:'s-exam2',start:'2026-11-26',end:'2026-11-27',grades:[10,11,12],category:'考試',title:'高中第二次段考',source:'exams',note:'依高中考試日期整理；使用者確認為全校共同考期，高一、高二、高三皆適用。各年級考科與範圍請以最新公告為準。',searchAliases:['段二','第二次段考']},
   {id:'s-mock1',start:'2026-07-29',end:'2026-07-30',grades:[12],category:'考試',title:'高三第一次模擬考',source:'summer',searchAliases:['模考']},
@@ -103,7 +122,7 @@ export const admissionEvents=[
  {...gsatExam,id:'a-gsat-exam',examType:'學測',source:'ceec'},
 ].map(e=>({...e,grades:[12],category:'升學',note:(e.examType==='術科'?'僅適用需報考音樂、美術或體育術科者。':'')+(e.kind==='報名'?'官方報名期間，截止日下午5時。校內集體報名期限可能較早，請自行留意學校或導師通知。':'正式考試，實際考程與試場請以官方公告為準。'),...e}));
 seniorEvents.push(
- {id:'s-advance12-writing',start:'2026-10-01',grades:[12],category:'考試',title:'高三提前考科・英文寫作',source:'advance',timeStart:'08:10',timeEnd:'09:00',note:'第1節（08:10～09:00）。'},
+ {id:'s-advance12-writing',start:'2026-10-01',grades:[12],category:'考試',title:'高三提前考科・英文寫作',source:'exam12',timeStart:'08:10',timeEnd:'09:00',note:'10/1英文寫作為第1節（08:10～09:00），依家長提供的10/10修正考程確認；實際以學校公告及鐘聲為準。'},
  {id:'s-advance10-science',start:'2026-10-07',grades:[10],category:'考試',title:'高一提前考科・科學研究大探索／醫學研究',source:'advance',timeStart:'08:10',timeEnd:'09:00',note:'第1節（08:10～09:00），實際應試科目依個人課程安排。'},
  {id:'s-intl-exam1',start:'2026-10-05',grades:[10],category:'考試',title:'高一國際能力段考一',source:'advance',timeStart:'15:10',timeEnd:'16:00',note:'第7節（15:10～16:00）。公告適用高一、國七、國八；本頁只顯示高中範圍。'},
  {id:'s-advance2-window',start:'2026-11-09',end:'2026-11-20',grades:[10,11,12],category:'考試',title:'提前考科安排區間（段考二前）',timing:'window',source:'exams',note:windowNote},
@@ -123,3 +142,5 @@ export const audienceLabel=e=>e.audiencePending?'適用年級待確認':e.audien
 // 使用者確認連假為跨學段共同安排；只共用明確標記的六筆連假。
 seniorSources.sharedHolidays={label:'家長確認國高中共同連假安排',revised:'2026-10-07'};
 seniorEvents.push(...juniorCalendarEvents.filter(e=>e.holidayExamReminder).map(e=>({id:'s-holiday-'+e.start,start:e.start,end:e.end,title:e.title,note:e.note,grades:[10,11,12],category:'放假',source:'sharedHolidays',holidayExamReminder:true})));
+
+export const seniorExternalNotices = [{id:"n-tsinghua-cup115",title:"清華盃化學競賽｜自115年起停辦",note:"主辦單位已公告自民國115年起停止辦理清華盃全國高級中學化學科能力競賽。原學校行事曆所列報名提醒不再建立有效行程；此處僅供備查，與清大化學組人才培育計畫不同。",published:"2026-06-29",checkedAt:"2026-10-08",url:"https://chemcontest.site.nthu.edu.tw/p/406-1333-311062,r11.php"}];

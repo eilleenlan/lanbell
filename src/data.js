@@ -1,11 +1,12 @@
-export const updatedAt = '2026年10月7日';
+export const updatedAt = '2026年10月8日';
 
 // 115學年度第一學期國中部活動日期；民國115/116年轉為西元2026/2027年。
 // grades: 7=國七、8=國八、9=國九；空陣列代表國中部全體。
 export const events = [
+  {"start":"2026-08-31","end":"2026-09-04","category":"活動","grades":[],"pendingGrades":[7,8,9],"pendingLabel":"適用年級待確認","title":"校內科展報名","searchAliases":["科學展覽","科展報名"],"source":"115學年度第一學期原始行事曆・第一週處室公告（家長提供截圖）","checkedAt":"2026-10-08","note":"原行事曆列8/31～9/4校內科展報名；國中適用年級與參加資格待確認，供有意參加者查閱。報名方式、截止時間與資格請依學校公告確認。"},
   { start:'2026-09-16', category:'考試-模擬考', grades:[9], title:'國九第一次模擬考放榜', note:'• 20:00 放榜，可自行用學校公告之帳號密碼上網查詢成績。\n• 查詢網站：https://etjhs.mietc.tw/#/ExamCentre/Student/Transcripts' },
   { start:'2027-01-21', end:'2027-02-10', category:'開學/放假', grades:[], title:'寒假', calendarKind:'winter-break', note:'寒輔 1/21（四）～2/2（二）；\n放假 2/3（三）～2/10（三）（過年連假 2/4～2/10）。' },
-  { start:'2026-08-31', category:'開學/放假', grades:[], title:'開學日' },
+  { start:'2026-08-31', category:'開學/放假', grades:[], title:'開學日', note:'國高中同步開學；國中適用國七、國八、國九。' },
   { start:'2026-08-31', category:'夜間課程/夜自習', grades:[], title:'夜自習開始' },
   { start:'2026-09-14', category:'夜間課程/夜自習', grades:[8], pendingGrades:[9], pendingLabel:'國九適用與否待確認', title:'夜間課程開始', note:'國七除外\n夜間課程指數培班、英培班等培訓課程，與夜自習不同。\n國九是否仍有夜間課程待確認；此行程是否適用國九，請依學校公告或向班導確認。' },
   { start:'2026-09-14', end:'2026-10-02', category:'活動', grades:[8], title:'八忠～八勇游泳課', note:'10/2 結束' },
