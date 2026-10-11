@@ -1,4 +1,4 @@
-import {examScopes,scopeUpdatedAt} from './exam-scopes.js?v=20261007';
+import {examScopes,scopeUpdatedAt} from './exam-scopes.js?v=20261010';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const normalize=s=>s.normalize('NFKC').toLowerCase().replace(/\s+/g,'');
 export function mountScopeSearch(host,files){
@@ -21,7 +21,8 @@ export function mountScopeSearch(host,files){
  form.addEventListener('submit',e=>{e.preventDefault();update()});
  form.addEventListener('input',e=>{if(!e.isComposing)update()});
  form.addEventListener('compositionend',update);
- form.addEventListener('change',update);
+ // 搜尋框已由 input 更新；失焦的 change 不重畫，避免移除正要點擊的結果按鈕。
+ form.addEventListener('change',e=>{if(e.target.tagName==='SELECT')update()});
  form.addEventListener('reset',e=>{e.preventDefault();form.elements.unit.value='';form.elements.scopeYear.value='';form.elements.scopeGrade.value='';update();form.elements.unit.focus()});
  host.addEventListener('click',e=>{const button=e.target.closest('[data-unit-example]');if(button){form.elements.unit.value=button.dataset.unitExample;update();form.elements.unit.focus()}});
  // Initial results without changing the incoming archive URL.

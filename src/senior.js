@@ -2,7 +2,7 @@ import {holidayExamReminder} from './holiday-exams.js?v=20261007';
 import { seniorOverview, seniorOverviewRange } from './senior-overview.js?v=20261007-summer';
 import { seniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource, admissionEvents, seniorExternalNotices, audienceLabel } from './senior-data.js?v=20261010-g12-corrected';
 
-import { mountExams } from './exams.js?v=20261007-unit';
+import { mountExams } from './exams.js?v=20261010-unit';
 import { seniorExamFiles } from './senior-exam-data.js?v=20261010-g12-corrected';
 export const seniorRoutes=[['/senior','高中首頁','⌂'],['/senior/calendar','行事曆','📅'],['/senior/exams','考程與範圍','▤'],['/senior/gsat','升學重要日程','🎓']];
 const grades={10:'高一',11:'高二',12:'高三'};

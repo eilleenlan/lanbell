@@ -1,4 +1,4 @@
-import {mountScopeSearch} from './scope-search.js?v=20261007';
+import {mountScopeSearch} from './scope-search.js?v=20261010';
 import {examFiles as juniorExamFiles} from './exam-data.js?v=20260930-exam1';
 const labels={year:'學年度',grade:'年級',term:'時期',exam:'考試'};
 const juniorOptions={year:[...new Set(juniorExamFiles.map(x=>x.year))].sort((a,b)=>b-a),grade:['7','8','9'],term:['上學期','下學期','暑期'],exam:['第一次段考','第二次段考','第三次段考','暑期學科競賽']};
