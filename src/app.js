@@ -1,10 +1,10 @@
 import {holidayExamReminder} from './holiday-exams.js?v=20261007';
 import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261010-unit';
-import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261011';
+import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261011-orientation';
 import { semesterOverview, semesters } from './semester.js?v=20261011';
 import { uniforms } from './uniforms.js?v=20260910';
 import { mountExams, examLink } from './exams.js?v=20261010-unit';
-import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261011';
+import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261011-orientation';
 
 const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服價格','👕']];
 const categoryGroups={
@@ -165,7 +165,7 @@ function render(resetScroll=false){
     bindMonthActions();
 
     document.querySelector('#overview-term').onchange=e=>{state.overviewTerm=e.target.value;render()};
-    document.querySelector('#academic-year-filter').onchange=e=>{state.academicYear=e.target.value;if(state.academicYear==='114'){state.term='下學期';state.includePast=true;}render()};
+    document.querySelector('#academic-year-filter').onchange=e=>{state.academicYear=e.target.value;const available=academicPeriods.filter(p=>p.year===state.academicYear).map(p=>p.term);if(state.term!=='all'&&available.length&&!available.includes(state.term))state.term=available[0];if(['113','114'].includes(state.academicYear))state.includePast=true;render()};
     document.querySelector('#term-filter').onchange=e=>{state.term=e.target.value;render()};
     const bindExpansion=()=>{const button=document.querySelector('#search-all-years');if(button)button.onclick=()=>{state.view='list';state.academicYear='all';state.term='all';state.includePast=true;render()};};
     bindExpansion();
