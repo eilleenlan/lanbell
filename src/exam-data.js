@@ -1,3 +1,4 @@
+import {lifeTechnologyMidterm} from './junior-other-exams.js?v=20261019-text';
 // 原圖由整理者提供；暑測依檔案標示歸入同號學年度。
 export const examFiles=[115,114].flatMap(year=>[7,8,9].map(grade=>({
   id:`${year}-summer-g${grade}`,year:String(year),grade:String(grade),term:'暑期',exam:'暑期學科競賽',
@@ -77,4 +78,5 @@ examFiles.push(...[7,8,9].map(grade=>({
   thumbnail:`./assets/exams/115/first-semester-exam1-g${grade}-thumb.jpg`,
   source:'家長整理提供；日期及修訂日期依原圖',
 })));
+examFiles.push(lifeTechnologyMidterm);
 examFiles.sort((a,b)=>Number(b.year)-Number(a.year)||a.date.localeCompare(b.date)||Number(a.grade)-Number(b.grade));

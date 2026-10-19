@@ -1,5 +1,6 @@
+import {lifeTechnologyMidterm} from './junior-other-exams.js?v=20261019-text';
 // 依家長提供原圖逐筆整理；examId 連結原圖及其版本。未推導全冊內的單元。
-export const scopeUpdatedAt='2026-10-10';
+export const scopeUpdatedAt='2026-10-20';
 export const examScopes=[
   {
     "examId": "115-first-exam1-g7",
@@ -284,3 +285,6 @@ export const examScopes=[
     "broad": false
   }
 ];
+
+// 共用既有文字考程，不另存一份測驗範圍。
+examScopes.push({examId:lifeTechnologyMidterm.id,subject:lifeTechnologyMidterm.subject,text:lifeTechnologyMidterm.scope,broad:false});

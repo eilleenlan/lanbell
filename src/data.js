@@ -1,5 +1,6 @@
+import {lifeTechnologyEvent} from './junior-other-exams.js?v=20261019-text';
 import {junior114SecondEvents} from './junior-114-2.js?v=20261011-orientation';
-export const updatedAt = '2026年10月11日';
+export const updatedAt = '2026年10月19日';
 
 // 115學年度第一學期國中部活動日期；民國115/116年轉為西元2026/2027年。
 // grades: 7=國七、8=國八、9=國九；空陣列代表國中部全體。
@@ -129,7 +130,7 @@ export const events = [
   { start:'2026-12-23', end:'2026-12-24', category:'考試-模擬考', grades:[9], title:'國九第二次模擬考' },
   // 段考與提前考科
   { start:'2026-10-13', end:'2026-10-14', category:'考試-段考', grades:[], title:'段考一' },
-  { start:'2026-11-03', category:'考試-段考', grades:[9], title:'期中考科－生活科技', note:'第1節；考試時間：08:10–09:00' },
+  lifeTechnologyEvent,
   { start:'2026-11-10', category:'考試-段考', grades:[8,9], title:'第二學月提前考科－國文寫作', note:'考試時間：08:10–09:00' },
   { start:'2026-11-20', category:'考試-段考', grades:[9], title:'第二學月提前考科－生物', note:'考試時間：15:10–16:00' },
   { start:'2026-11-26', end:'2026-11-27', category:'考試-段考', grades:[], title:'段考二' },

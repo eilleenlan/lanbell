@@ -1,17 +1,19 @@
-import {mountScopeSearch} from './scope-search.js?v=20261010';
-import {examFiles as juniorExamFiles} from './exam-data.js?v=20260930-exam1';
+import {mountScopeSearch} from './scope-search.js?v=20261020';
+import {examFiles as juniorExamFiles} from './exam-data.js?v=20261019-text';
 const labels={year:'學年度',grade:'年級',term:'時期',exam:'考試'};
 const juniorOptions={year:[...new Set(juniorExamFiles.map(x=>x.year))].sort((a,b)=>b-a),grade:['7','8','9'],term:['上學期','下學期','暑期'],exam:['第一次段考','第二次段考','第三次段考','暑期學科競賽']};
+const baseExamOptions=[...juniorOptions.exam];
+juniorOptions.exam.push('其他測驗');
 const juniorGradeName=g=>`國${'七八九'[Number(g)-7]}`;
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const examLink=event=>{
  const title=({'段考一':'第一次段考','段考二':'第二次段考','段考三':'第三次段考'})[event.title]||event.title;
  const matches=juniorExamFiles.filter(x=>x.date===event.start&&x.exam===title);
- return matches.length?`<a class="google-calendar-link" href="#/exams?year=${matches[0].year}&term=${encodeURIComponent(matches[0].term)}&exam=${encodeURIComponent(matches[0].exam)}">查看考程原圖</a>`:'';
+ return matches.length?`<a class="google-calendar-link" href="#/exams?year=${matches[0].year}&term=${encodeURIComponent(matches[0].term)}&exam=${encodeURIComponent(matches[0].examCategory||matches[0].exam)}">${matches[0].textOnly?'查看考程資料':'查看考程原圖'}</a>`:'';
 };
 export function mountExams(host,config={}){
  const examFiles=config.files||juniorExamFiles;
- const options=config.files?{...juniorOptions,year:[...new Set(examFiles.map(x=>x.year))].sort((a,b)=>b-a),grade:['10','11','12']}:juniorOptions;
+ const options=config.files?{...juniorOptions,year:[...new Set(examFiles.map(x=>x.year))].sort((a,b)=>b-a),grade:['10','11','12'],exam:baseExamOptions}:juniorOptions;
  const gradeName=config.files?g=>({10:'高一',11:'高二',12:'高三'}[g]):juniorGradeName;
  const name=x=>`${x.year}學年度・${x.term}・${x.exam}・${gradeName(x.grade)}${x.track?`（${x.track}）`:""}`;
  const route=config.route||'/exams';
@@ -21,14 +23,14 @@ export function mountExams(host,config={}){
  host.innerHTML=`<section class="exam-library"><header class="page-header"><span class="eyebrow">EXAM ARCHIVE</span><h1>考程與範圍</h1><p>找到需要的考程，下載原圖、列印，或選兩份一起比較。</p></header><div class="archive-intro"><strong>${options.year.at(-1)}–${options.year[0]} 學年度 · 考程原圖收藏</strong><span>目前收錄 ${examFiles.length} 份考程｜歷年資料供參考，以當次最新公告為準。</span></div>${config.files?'':'<div id="scope-search-host"></div>'}<section class="archive-filters" aria-label="考程篩選"><p>每類皆可複選，未選代表全部。</p><div id="archive-fields"></div><div class="archive-actions"><button id="archive-reset">清除全部篩選</button><button id="archive-share">複製篩選連結</button></div></section><p id="archive-notice" role="status"></p><div class="archive-result-heading"><h2 id="archive-count" aria-live="polite"></h2><span>依學年度由新到舊排列</span></div><div class="archive-grid" id="archive-results"></div><aside class="compare-bar" aria-label="比較清單"><span id="compare-summary" aria-live="polite"></span><button id="compare-open" disabled>並排比較</button><button id="compare-clear">清空比較</button></aside><dialog class="exam-dialog" aria-labelledby="exam-dialog-title"><div class="dialog-heading"><h2 id="exam-dialog-title"></h2><button id="dialog-close" autofocus>關閉</button></div><div id="dialog-content"></div></dialog></section>`;
  const q=s=>host.querySelector(s);
  const notice=message=>{q('#archive-notice').textContent=message};
- const allowedExams=()=>options.exam.filter(x=>!filters.term.length||filters.term.some(t=>t==='暑期'?x==='暑期學科競賽':x!=='暑期學科競賽'));
+ const allowedExams=()=>options.exam.filter(x=>!filters.term.length||filters.term.some(t=>x==='其他測驗'||(t==='暑期'?x==='暑期學科競賽':x!=='暑期學科競賽')));
  const syncUrl=()=>{const p=new URLSearchParams(location.hash.split('?')[1]||'');Object.keys(labels).forEach(k=>p.set(k,filters[k].join(',')));history.replaceState(null,'',`#${route}?${p}`)};
  function fields(){q('#archive-fields').innerHTML=Object.entries(labels).map(([key,label])=>`<fieldset><legend>${label} <small>${filters[key].length?`已選 ${filters[key].length} 項`:'全部'}</small></legend><div class="archive-choices">${(key==='exam'?allowedExams():options[key]).map(value=>`<label><input type="checkbox" data-filter="${key}" value="${value}" ${filters[key].includes(value)?'checked':''}><span>${key==='grade'?gradeName(value):key==='year'?value+'學年度':value}</span></label>`).join('')}<button data-clear="${key}">清除${label}</button></div></fieldset>`).join('')}
- const actions=x=>`<div class="archive-actions"><button data-view="${x.id}">查看大圖</button><a href="${x.original}" download="${name(x)}.jpg">下載原圖</a><button data-print="${x.id}">列印</button></div>`;
+ const actions=x=>`<div class="archive-actions"><button data-view="${x.id}">查看大圖</button><a href="${x.original}" download="${name(x)}.${x.original.split('.').pop()}">下載原圖</a><button data-print="${x.id}">列印</button></div>`;
  function results(){
-  const files=examFiles.filter(x=>Object.keys(labels).every(k=>!filters[k].length||filters[k].includes(x[k])));
+  const files=examFiles.filter(x=>Object.keys(labels).every(k=>!filters[k].length||filters[k].includes(k==='exam'&&!config.files?(x.examCategory||x.exam):x[k])));
   q('#archive-count').textContent=`顯示 ${files.length} 份考程`;
-  q('#archive-results').innerHTML=files.map(x=>`<article class="archive-card"><div class="archive-card-heading"><span class="archive-year">${x.year}學年度 · ${x.term}</span><span class="grade-tag">${gradeName(x.grade)}${x.track?`・${x.track}`:""}</span></div><h3>${x.exam}</h3><p>考試日期：${x.date}${x.end?`～${x.end}`:""}<br>原圖修訂：${x.revised||'未標示'}${x.note?`<br>${escape(x.note)}`:""}</p><button class="archive-thumbnail" data-view="${x.id}" aria-label="查看 ${name(x)} 大圖"><img src="${x.thumbnail}" alt="${name(x)}考程與範圍" loading="lazy" width="480"></button>${actions(x)}<label class="compare-choice"><input type="checkbox" data-compare="${x.id}" ${selected.includes(x.id)?'checked':''}>加入比較</label></article>`).join('')||'<p class="empty-state">目前尚未收錄符合條件的考程。請調整篩選，或清除全部篩選查看現有資料。</p>';
+  q('#archive-results').innerHTML=files.map(x=>x.textOnly?`<article class="archive-card"><div class="archive-card-heading"><span class="archive-year">${x.year}學年度 · ${x.term}</span><span class="grade-tag">${gradeName(x.grade)}</span></div><h3>${escape(x.exam)}</h3><p>考試日期：${escape(x.date)}<br>節次：${escape(x.period)}<br>時間：${escape(x.time)}<br>科目：${escape(x.subject)}<br>測驗範圍：${escape(x.scope)}</p><p class="source-note">非官方網站，純屬家長交流參考，一切資訊以學校最新公告為準</p></article>`:`<article class="archive-card"><div class="archive-card-heading"><span class="archive-year">${x.year}學年度 · ${x.term}</span><span class="grade-tag">${gradeName(x.grade)}${x.track?`・${x.track}`:""}</span></div><h3>${x.exam}</h3><p>考試日期：${x.date}${x.end?`～${x.end}`:""}<br>原圖修訂：${x.revised||'未標示'}${x.note?`<br>${escape(x.note)}`:""}${!config.files&&x.examCategory?`<br>${escape(x.period)} ${escape(x.time)}<br>科目：${escape(x.subject)}<br>測驗範圍：${escape(x.scope)}`:""}</p><button class="archive-thumbnail" data-view="${x.id}" aria-label="查看 ${name(x)} 大圖"><img src="${x.thumbnail}" alt="${name(x)}考程與範圍" loading="lazy" width="480"></button>${actions(x)}<label class="compare-choice"><input type="checkbox" data-compare="${x.id}" ${selected.includes(x.id)?'checked':''}>加入比較</label></article>`).join('')||'<p class="empty-state">目前尚未收錄符合條件的考程。請調整篩選，或清除全部篩選查看現有資料。</p>';
   compareState();
  }
  function compareState(){
@@ -37,13 +39,14 @@ export function mountExams(host,config={}){
   host.querySelectorAll('[data-compare]').forEach(input=>{input.checked=selected.includes(input.dataset.compare);input.disabled=selected.length===2&&!input.checked});
  }
  function openViewer(ids){
+  ids=ids.filter(id=>{const x=examFiles.find(x=>x.id===id);return x&&!x.textOnly&&x.original});if(!ids.length)return;
   q('#exam-dialog-title').textContent=ids.length===2?'考程並排比較':'考程原圖';
   q('#dialog-content').className=ids.length===2?'comparison-panes':'single-pane';
   q('#dialog-content').innerHTML=ids.map(id=>{const x=examFiles.find(x=>x.id===id);return `<section class="image-pane"><h3>${name(x)}</h3><label class="zoom-control">縮放 <input type="range" min="100" max="250" step="25" value="100" aria-label="${name(x)}縮放"><output>100%</output></label><div class="image-scroll" tabindex="0" aria-label="${name(x)}圖片捲動區"><img src="${x.original}" alt="${name(x)}考程與範圍"></div>${actions(x)}</section>`}).join('');
   if(!q('dialog').open)q('dialog').showModal();
  }
  async function printFile(id){
-  const x=examFiles.find(x=>x.id===id);
+  const x=examFiles.find(x=>x.id===id);if(!x||x.textOnly||!x.original)return;
   const frame=document.createElement('iframe');frame.className='exam-print-frame';frame.title=`列印 ${name(x)}`;document.body.append(frame);
   const doc=frame.contentDocument;
   doc.open();doc.write(`<!doctype html><html lang="zh-Hant"><head><title>${escape(name(x))}</title><style>@page{size:A4 portrait;margin:10mm}html,body{margin:0}img{display:block;width:190mm;height:276mm;object-fit:contain}</style></head><body><img src="${new URL(x.original,location.href).href}" alt="${escape(name(x))}"></body></html>`);doc.close();
