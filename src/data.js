@@ -1,6 +1,6 @@
 import {lifeTechnologyEvent} from './junior-other-exams.js?v=20261019-text';
 import {junior114SecondEvents} from './junior-114-2.js?v=20261011-orientation';
-export const updatedAt = '2026年10月19日';
+export const updatedAt = '2026年10月20日';
 
 // 115學年度第一學期國中部活動日期；民國115/116年轉為西元2026/2027年。
 // grades: 7=國七、8=國八、9=國九；空陣列代表國中部全體。
@@ -23,7 +23,7 @@ export const events = [
   { start:'2026-10-05', end:'2026-10-14', category:'夜間課程/夜自習', grades:[7,8], pendingGrades:[9], pendingLabel:'國九適用與否待確認', title:'夜間課程暫停', note:'段考期間\n夜間課程指數培班、英培班等培訓課程，與夜自習不同。\n國九是否仍有夜間課程待確認；此行程是否適用國九，請依學校公告或向班導確認。' },
   { start:'2026-10-05', end:'2026-10-08', category:'行政', grades:[], title:'9月學生出缺勤資料核對' },
   { start:'2026-10-17', category:'活動', grades:[7,8], title:'桌球賽', note:'國九是否可參加，請與班導確認。', tentative:true },
-  { start:'2026-10-20', end:'2026-10-21', category:'健康', grades:[], title:'校園流感疫苗接種' },
+  { start:'2026-10-20', end:'2026-10-21', category:'健康', grades:[], title:'校園流感疫苗接種', collapsibleNote:true, note:'接種意願調查\n線上接種意願須於 2026/09/21（一）13:00 前完成填寫，無論是否接種，均須填寫。\n\n接種當日提醒\n請攜帶健保卡。', source:'使用者提供接種意願填寫期限及接種當日提醒', checkedAt:'2026-10-20' },
   { start:'2026-10-22', category:'健康', grades:[7], title:'外縣市學生心臟病篩檢' },
   { start:'2026-10-31', category:'一般家長', grades:[7,8], title:'國七、國八期中家長座談會' },
   { start:'2026-11-02', category:'夜間課程/夜自習', grades:[7], title:'國七夜間課程開始', note:'依公告日期與時間上課\n夜間課程指數培班、英培班等培訓課程，與夜自習不同。' },
