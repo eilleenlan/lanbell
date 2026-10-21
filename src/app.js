@@ -1,10 +1,10 @@
 import {holidayExamReminder} from './holiday-exams.js?v=20261007';
-import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261010-unit';
+import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261021-parent-g9';
 import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261011-orientation';
 import { semesterOverview, semesters } from './semester.js?v=20261011';
 import { uniforms } from './uniforms.js?v=20260910';
 import { mountExams, examLink } from './exams.js?v=20261020-details';
-import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261020-vaccine';
+import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261021-parent-g9';
 
 const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服價格','👕']];
 const categoryGroups={
@@ -23,7 +23,7 @@ const dateText=(event)=>{
   return event.end&&event.end!==event.start?`${short(event.start)}<span class="date-connector">｜</span><span class="date-end">${short(event.end)}</span>`:short(event.start);
 };
 const gradeText=(grades)=>grades.length?grades.map(x=>`國${'七八九'[x-7]}`).join('、'):'國中部全體';
-const eventGradeText=x=>[x.grades.length||!x.pendingGrades?.length?gradeText(x.grades):'',x.pendingGrades?.length?(x.pendingLabel||`${gradeText(x.pendingGrades)}是否可參加待確認`):''].filter(Boolean).join('；');
+const eventGradeText=x=>x.gradeLabel||[x.grades.length||!x.pendingGrades?.length?gradeText(x.grades):'',x.pendingGrades?.length?(x.pendingLabel||`${gradeText(x.pendingGrades)}是否可參加待確認`):''].filter(Boolean).join('；');
 const head=(a,b,c)=>`<header class="page-header"><span class="eyebrow">${a}</span><h1>${b}</h1><p>${c}</p></header>`;
 const localDate=(value)=>new Date(`${value}T00:00:00`);
 const startOfToday=()=>{const today=new Date();return new Date(today.getFullYear(),today.getMonth(),today.getDate())};

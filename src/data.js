@@ -1,6 +1,6 @@
 import {lifeTechnologyEvent} from './junior-other-exams.js?v=20261019-text';
 import {junior114SecondEvents} from './junior-114-2.js?v=20261011-orientation';
-export const updatedAt = '2026年10月20日';
+export const updatedAt = '2026年10月21日';
 
 // 115學年度第一學期國中部活動日期；民國115/116年轉為西元2026/2027年。
 // grades: 7=國七、8=國八、9=國九；空陣列代表國中部全體。
@@ -25,7 +25,7 @@ export const events = [
   { start:'2026-10-17', category:'活動', grades:[7,8], title:'桌球賽', note:'國九是否可參加，請與班導確認。', tentative:true },
   { start:'2026-10-20', end:'2026-10-21', category:'健康', grades:[], title:'校園流感疫苗接種', collapsibleNote:true, note:'接種意願調查\n線上接種意願須於 2026/09/21（一）13:00 前完成填寫，無論是否接種，均須填寫。\n\n接種當日提醒\n請攜帶健保卡。', source:'使用者提供接種意願填寫期限及接種當日提醒', checkedAt:'2026-10-20' },
   { start:'2026-10-22', category:'健康', grades:[7], title:'外縣市學生心臟病篩檢' },
-  { start:'2026-10-31', category:'一般家長', grades:[7,8], title:'國七、國八期中家長座談會' },
+  { start:'2026-10-31', category:'一般家長', grades:[7,8,9], gradeLabel:'國七、國八；九年級僅九德', title:'國七、國八及九德期中家長座談會', collapsibleNote:true, note:"115學年度第1學期期中家長座談會\n\n活動流程\n• 08:30 開放入場。\n• 09:00～10:30 親職講座。\n• 10:30～12:00 家長座談會。\n\n親職講座\n主題：父母如何與青春藍色風暴共舞\n主講人：林純竹 臨床心理師（三軍北投分院心理科）\n地點：成英樓\n主辦單位：輔導室\n四大主題：\n• 青少年常見憂鬱的樣貌\n• 父母自我穩定術\n• 孩子我能看見你\n• 你不孤單尋求資源協助\n\n家長座談會\n地點：班級教室\n邀請對象：國中七、八年級、九德、高中一、二年級家長\n主辦單位：學務處\n內容：\n• 班級經營分享\n• 學生學習與生活適應\n• 親師溝通與合作\n• 綜合意見交流\n\n注意事項\n• 家長建議事項表：10/23（五）前填繳。\n• 學校附近無大型停車場，建議搭乘大眾運輸工具。\n• 僅開放正門入校（珠海路）。", source:'使用者提供施工單004文字說明', checkedAt:'2026-10-21' },
   { start:'2026-11-02', category:'夜間課程/夜自習', grades:[7], title:'國七夜間課程開始', note:'依公告日期與時間上課\n夜間課程指數培班、英培班等培訓課程，與夜自習不同。' },
   { start:'2026-11-03', end:'2026-11-05', category:'健康', grades:[7], title:'新生學生健康檢查', note:'11/3、11/4整天；11/5上午' },
   { start:'2026-11-04', category:'行政', grades:[], title:'10月學生出缺勤資料核對' },

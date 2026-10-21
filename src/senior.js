@@ -1,6 +1,6 @@
 import {holidayExamReminder} from './holiday-exams.js?v=20261007';
 import { seniorOverview, seniorOverviewRange } from './senior-overview.js?v=20261007-summer';
-import { seniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource, admissionEvents, seniorExternalNotices, audienceLabel } from './senior-data.js?v=20261010-g12-corrected';
+import { seniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource, admissionEvents, seniorExternalNotices, audienceLabel } from './senior-data.js?v=20261021-parent-g9';
 
 import { mountExams } from './exams.js?v=20261010-unit';
 import { seniorExamFiles } from './senior-exam-data.js?v=20261010-g12-corrected';
