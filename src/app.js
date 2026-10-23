@@ -2,7 +2,7 @@ import {holidayExamReminder} from './holiday-exams.js?v=20261007';
 import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261021-parent-g9';
 import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261011-orientation';
 import { semesterOverview, semesters } from './semester.js?v=20261011';
-import { uniforms } from './uniforms.js?v=20261023-shared-supplies';
+import { uniforms } from './uniforms.js?v=20261023-winter-jacket';
 import { mountExams, examLink } from './exams.js?v=20261020-details';
 import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261021-parent-g9';
 
