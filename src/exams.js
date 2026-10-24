@@ -1,5 +1,5 @@
 import {mountScopeSearch} from './scope-search.js?v=20261020';
-import {examFiles as juniorExamFiles} from './exam-data.js?v=20261019-text';
+import {examFiles as juniorExamFiles} from './exam-data.js?v=20261024-collection';
 const labels={year:'學年度',grade:'年級',term:'時期',exam:'考試'};
 const juniorOptions={year:[...new Set(juniorExamFiles.map(x=>x.year))].sort((a,b)=>b-a),grade:['7','8','9'],term:['上學期','下學期','暑期'],exam:['第一次段考','第二次段考','第三次段考','暑期學科競賽']};
 const baseExamOptions=[...juniorOptions.exam];
@@ -8,7 +8,7 @@ const juniorGradeName=g=>`國${'七八九'[Number(g)-7]}`;
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const examLink=event=>{
  const title=({'段考一':'第一次段考','段考二':'第二次段考','段考三':'第三次段考'})[event.title]||event.title;
- const matches=juniorExamFiles.filter(x=>x.date===event.start&&x.exam===title);
+ const matches=juniorExamFiles.filter(x=>x.date===event.start&&(x.id===event.id||x.exam===title));
  return matches.length?`<a class="google-calendar-link" href="#/exams?year=${matches[0].year}&term=${encodeURIComponent(matches[0].term)}&exam=${encodeURIComponent(matches[0].examCategory||matches[0].exam)}">${matches[0].textOnly?'查看考程資料':'查看考程原圖'}</a>`:'';
 };
 export function mountExams(host,config={}){
@@ -30,7 +30,7 @@ export function mountExams(host,config={}){
  function results(){
   const files=examFiles.filter(x=>Object.keys(labels).every(k=>!filters[k].length||filters[k].includes(k==='exam'&&!config.files?(x.examCategory||x.exam):x[k])));
   q('#archive-count').textContent=`顯示 ${files.length} 份考程`;
-  q('#archive-results').innerHTML=files.map(x=>x.textOnly?`<article class="archive-card archive-text-card" data-text-card="${escape(x.id)}"><div class="archive-card-heading"><span class="archive-year">${x.year}學年度 · ${x.term}</span><span class="grade-tag">${gradeName(x.grade)}</span></div><h3>${escape(x.exam)}</h3><p>考試日期：${escape(x.date)}<br>節次：${escape(x.period)}<br>時間：${escape(x.time)}<br>科目：${escape(x.subject)}<br>測驗範圍：${escape(x.scope)}</p><p class="source-note">非官方網站，純屬家長交流參考，一切資訊以學校最新公告為準</p><button type="button" data-details="${escape(x.id)}" aria-haspopup="dialog">查看詳細資料</button></article>`:`<article class="archive-card"><div class="archive-card-heading"><span class="archive-year">${x.year}學年度 · ${x.term}</span><span class="grade-tag">${gradeName(x.grade)}${x.track?`・${x.track}`:""}</span></div><h3>${x.exam}</h3><p>考試日期：${x.date}${x.end?`～${x.end}`:""}<br>原圖修訂：${x.revised||'未標示'}${x.note?`<br>${escape(x.note)}`:""}${!config.files&&x.examCategory?`<br>${escape(x.period)} ${escape(x.time)}<br>科目：${escape(x.subject)}<br>測驗範圍：${escape(x.scope)}`:""}</p><button class="archive-thumbnail" data-view="${x.id}" aria-label="查看 ${name(x)} 大圖"><img src="${x.thumbnail}" alt="${name(x)}考程與範圍" loading="lazy" width="480"></button>${actions(x)}<label class="compare-choice"><input type="checkbox" data-compare="${x.id}" ${selected.includes(x.id)?'checked':''}>加入比較</label></article>`).join('')||'<p class="empty-state">目前尚未收錄符合條件的考程。請調整篩選，或清除全部篩選查看現有資料。</p>';
+  q('#archive-results').innerHTML=files.map(x=>x.textOnly?`<article class="archive-card archive-text-card" data-text-card="${escape(x.id)}"><div class="archive-card-heading"><span class="archive-year">${x.year}學年度 · ${x.term}</span><span class="grade-tag">${gradeName(x.grade)}</span></div><h3>${escape(x.exam)}</h3><p>${x.dateKind==='collection'?'領卷日期':'考試日期'}：${escape(x.date)}${x.dateKind==='collection'?`<br>週次：第${x.week}週（115上學期暫定）`:`<br>節次：${escape(x.period)}`}<br>${x.dateKind==='collection'?'測驗時間':'時間'}：${escape(x.time)}<br>科目：${escape(x.subject)}<br>${x.dateKind==='collection'?'預定測驗範圍':'測驗範圍'}：${escape(x.scope)}</p>${x.note?`<p class="source-note">${escape(x.note)}</p>`:""}<p class="source-note">非官方網站，純屬家長交流參考，一切資訊以學校最新公告為準</p><button type="button" data-details="${escape(x.id)}" aria-haspopup="dialog">查看詳細資料</button></article>`:`<article class="archive-card"><div class="archive-card-heading"><span class="archive-year">${x.year}學年度 · ${x.term}</span><span class="grade-tag">${gradeName(x.grade)}${x.track?`・${x.track}`:""}</span></div><h3>${x.exam}</h3><p>考試日期：${x.date}${x.end?`～${x.end}`:""}<br>原圖修訂：${x.revised||'未標示'}${x.note?`<br>${escape(x.note)}`:""}${!config.files&&x.examCategory?`<br>${escape(x.period)} ${escape(x.time)}<br>科目：${escape(x.subject)}<br>測驗範圍：${escape(x.scope)}`:""}</p><button class="archive-thumbnail" data-view="${x.id}" aria-label="查看 ${name(x)} 大圖"><img src="${x.thumbnail}" alt="${name(x)}考程與範圍" loading="lazy" width="480"></button>${actions(x)}<label class="compare-choice"><input type="checkbox" data-compare="${x.id}" ${selected.includes(x.id)?'checked':''}>加入比較</label></article>`).join('')||'<p class="empty-state">目前尚未收錄符合條件的考程。請調整篩選，或清除全部篩選查看現有資料。</p>';
   compareState();
  }
  function compareState(){
@@ -53,7 +53,11 @@ export function mountExams(host,config={}){
   q('#exam-dialog-title').textContent=x.exam;
   q('#dialog-content').className='text-exam-details';
   const rows=[['學年度／學期／年級',x.year+'學年度 · '+x.term+' · '+gradeName(x.grade)+(x.track?'・'+x.track:'')],['考試日期',x.date+(x.end?'～'+x.end:'')],['節次與時間',x.period+' '+x.time],['科目',x.subject]];
-  q('#dialog-content').innerHTML='<dl>'+rows.map(([label,value])=>'<div><dt>'+escape(label)+'</dt><dd>'+escape(value)+'</dd></div>').join('')+'</dl><section class="text-exam-scope"><h3>測驗範圍</h3><p>'+escape(x.scope)+'</p></section><p class="source-note">非官方網站，純屬家長交流參考，一切資訊以學校最新公告為準</p>';
+  q('#dialog-content').innerHTML='<dl>'+rows.map(([label,value])=>'<div><dt>'+escape(label)+'</dt><dd>'+escape(value)+'</dd></div>').join('')+'</dl><section class="text-exam-scope"><h3>測驗範圍</h3><p>'+escape(x.scope)+'</p></section>'+(x.note?'<p class="source-note">'+escape(x.note)+'</p>':'')+'<p class="source-note">非官方網站，純屬家長交流參考，一切資訊以學校最新公告為準</p>';
+  if(x.dateKind==='collection'){
+   const tags=[x.year+'學年度',x.term,gradeName(x.grade),'第'+x.week+'週',x.subject];
+   q('#dialog-content').innerHTML='<div class="weekly-exam-tags">'+tags.map(t=>'<span class="grade-tag">'+escape(t)+'</span>').join('')+'</div><dl><div><dt>領卷日期</dt><dd>'+escape(x.date)+'</dd></div><div><dt>測驗日期</dt><dd>依各班當週該科課程安排</dd></div><div><dt>測驗時間</dt><dd>'+escape(x.duration+'分鐘')+'</dd></div></dl><section class="text-exam-scope"><h3>預定測驗範圍</h3><p>'+escape(x.scope.split('；').join('\n').replace(' / ','\n'))+'</p></section><p class="source-note">非官方網站，純屬家長交流參考，一切資訊以學校最新公告為準</p>';
+  }
   q('dialog').showModal();q('#dialog-close').focus();
  }
  function openViewer(ids){

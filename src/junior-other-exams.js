@@ -12,3 +12,24 @@ export const lifeTechnologyEvent={
  schedule:[{date:lifeTechnologyMidterm.date+'（二）',time:lifeTechnologyMidterm.period+' '+lifeTechnologyMidterm.time,subject:lifeTechnologyMidterm.subject}],
  examScope:[[lifeTechnologyMidterm.subject,lifeTechnologyMidterm.scope]]
 };
+
+// 施工單005：僅使用家長人工整理文字；學年度／學期／年份暫定。
+export const grade8WeeklyExams=[
+ ['09-21',4,'國文','五柳先生傳',30],
+ ['09-29',5,'數學','方根與商高定理；主題一 平方根的意義；主題二 方根的運算；主題三 商高定理',40],
+ ['11-02',10,'理化','3-3 聲波的反射與超聲波；3-4 多變的聲音',40],
+ ['11-09',11,'英語','B4 U1/U2：The Steak Looks Yummy / Red Fire Ants Are the Most Dangerous Ants；V2K p.213–227',30],
+ ['12-21',17,'國文','樂府詩選',30],
+ ['12-28',18,'數學','數列與級數；主題一 等差數列；主題二 等差級數；主題三 等比數列；主題四 數型關係',40]
+].map(([date,week,subject,scope,duration])=>({
+ id:'115-weekly-g8-'+date,year:'115',grade:'8',term:'上學期',
+ exam:'國八學科競賽（週考）－'+subject,examCategory:'其他測驗',date:'2026-'+date,
+ dateKind:'collection',week,duration,period:'未提供',time:'各該科目課堂內（'+duration+'分鐘）',subject,scope,
+ note:'領卷日期不是統一考試日期，實際測驗依各班當週該科課程安排。',
+ textOnly:true,checkedAt:'2026-10-24',source:'使用者提供施工單005人工整理文字'
+}));
+export const grade8WeeklyEvents=grade8WeeklyExams.map(x=>({
+ id:x.id,start:x.date,category:'考試-學科競賽',grades:[8],title:x.exam+'－領卷',tentative:true,
+ note:'暫定115學年度上學期；第'+x.week+'週。'+x.note,source:x.source,checkedAt:x.checkedAt,
+ reminders:['領卷日期：'+x.date,'測驗時間：'+x.time,'預定測驗範圍：'+x.scope]
+}));
