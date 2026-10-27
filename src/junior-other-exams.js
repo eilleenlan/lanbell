@@ -18,7 +18,7 @@ export const grade8WeeklyExams=[
  ['09-21',4,'國文','五柳先生傳',30],
  ['09-29',5,'數學','方根與商高定理；主題一 平方根的意義；主題二 方根的運算；主題三 商高定理',40],
  ['11-02',10,'理化','3-3 聲波的反射與超聲波；3-4 多變的聲音',40],
- ['11-09',11,'英語','B4 U1/U2：The Steak Looks Yummy / Red Fire Ants Are the Most Dangerous Ants；V2K p.213–227',30],
+ ['11-09',11,'英語','B4U1；V2000 p.213–222',30],
  ['12-21',17,'國文','樂府詩選',30],
  ['12-28',18,'數學','數列與級數；主題一 等差數列；主題二 等差級數；主題三 等比數列；主題四 數型關係',40]
 ].map(([date,week,subject,scope,duration])=>({
@@ -28,8 +28,14 @@ export const grade8WeeklyExams=[
  note:'領卷日期不是統一考試日期，實際測驗依各班當週該科課程安排。',
  textOnly:true,checkedAt:'2026-10-24',source:'使用者提供施工單005人工整理文字'
 }));
+// 10/27新通知：更新既有國八英語，新增國七；維持同一識別碼。
+const english8=grade8WeeklyExams.find(x=>x.id==='115-weekly-g8-11-09');
+Object.assign(english8,{testDate:'依各班當週英語課程安排',time:'30分鐘',note:'領卷日期不是統一考試日期，實際測驗依各班當週英語課程安排。',checkedAt:'2026-10-27',source:'使用者提供施工單005補充：11/9英語週考新通知文字'});
+export const grade7WeeklyExams=[{...english8,id:'115-weekly-g7-11-09',grade:'7',exam:'國七學科競賽（週考）－英語',scope:'B1U5；V2000 p.31–42'}];
 export const grade8WeeklyEvents=grade8WeeklyExams.map(x=>({
- id:x.id,start:x.date,category:'考試-學科競賽',grades:[8],title:x.exam+'－領卷',tentative:true,
- note:'暫定115學年度上學期；第'+x.week+'週。'+x.note,source:x.source,checkedAt:x.checkedAt,
- reminders:['領卷日期：'+x.date,'測驗時間：'+x.time,'預定測驗範圍：'+x.scope]
+ id:x.id,start:x.date,category:'考試-學科競賽',grades:[8],title:x.exam+'－領卷',tentative:!x.testDate,
+ note:(x.testDate?'115學年度上學期；第':'暫定115學年度上學期；第')+x.week+'週。'+x.note,source:x.source,checkedAt:x.checkedAt,
+ reminders:['領卷日期：'+x.date,...(x.testDate?['測驗日期：'+x.testDate]:[]),'測驗時間：'+x.time,'預定測驗範圍：'+x.scope]
 }));
+
+export const grade7WeeklyEvents=grade7WeeklyExams.map(x=>({...grade8WeeklyEvents.find(e=>e.id===english8.id),id:x.id,grades:[7],title:x.exam+'－領卷',reminders:['領卷日期：'+x.date,'測驗日期：'+x.testDate,'測驗時間：'+x.time,'預定測驗範圍：'+x.scope]}));
