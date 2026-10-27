@@ -1,4 +1,4 @@
-import {lifeTechnologyEvent,grade8WeeklyEvents,grade7WeeklyEvents} from './junior-other-exams.js?v=20261027-english';
+import {lifeTechnologyEvent,grade8WeeklyEvents,grade7WeeklyEvents} from './junior-other-exams.js?v=20261027-biology';
 import {junior114SecondEvents} from './junior-114-2.js?v=20261011-orientation';
 export const updatedAt = '2026年10月27日';
 

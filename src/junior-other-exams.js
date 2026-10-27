@@ -32,10 +32,16 @@ export const grade8WeeklyExams=[
 const english8=grade8WeeklyExams.find(x=>x.id==='115-weekly-g8-11-09');
 Object.assign(english8,{testDate:'依各班當週英語課程安排',time:'30分鐘',note:'領卷日期不是統一考試日期，實際測驗依各班當週英語課程安排。',checkedAt:'2026-10-27',source:'使用者提供施工單005補充：11/9英語週考新通知文字'});
 export const grade7WeeklyExams=[{...english8,id:'115-weekly-g7-11-09',grade:'7',exam:'國七學科競賽（週考）－英語',scope:'B1U5；V2000 p.31–42'}];
+grade7WeeklyExams.push({
+ id:'115-weekly-g7-11-02',year:'115',grade:'7',term:'上學期',exam:'國七學科競賽（週考）－生物',examCategory:'其他測驗',
+ date:'2026-11-02',dateKind:'collection',week:10,duration:40,period:'未提供',time:'40分鐘',testDate:'依各班當週生物課程安排',subject:'生物',
+ scope:'實驗 3-1 澱粉與糖分的測定；實驗 3-2 溫度對唾液分解澱粉的影響；實驗 3-3 光與光合作用；3-4 人體如何獲得養分',
+ note:'領卷日期不是統一考試日期，實際測驗依各班當週生物課程安排。',textOnly:true,checkedAt:'2026-10-27',source:'使用者提供施工單006最新通知文字；預定範圍已調整'
+});
 export const grade8WeeklyEvents=grade8WeeklyExams.map(x=>({
  id:x.id,start:x.date,category:'考試-學科競賽',grades:[8],title:x.exam+'－領卷',tentative:!x.testDate,
  note:(x.testDate?'115學年度上學期；第':'暫定115學年度上學期；第')+x.week+'週。'+x.note,source:x.source,checkedAt:x.checkedAt,
  reminders:['領卷日期：'+x.date,...(x.testDate?['測驗日期：'+x.testDate]:[]),'測驗時間：'+x.time,'預定測驗範圍：'+x.scope]
 }));
 
-export const grade7WeeklyEvents=grade7WeeklyExams.map(x=>({...grade8WeeklyEvents.find(e=>e.id===english8.id),id:x.id,grades:[7],title:x.exam+'－領卷',reminders:['領卷日期：'+x.date,'測驗日期：'+x.testDate,'測驗時間：'+x.time,'預定測驗範圍：'+x.scope]}));
+export const grade7WeeklyEvents=grade7WeeklyExams.map(x=>({id:x.id,start:x.date,category:'考試-學科競賽',grades:[7],title:x.exam+'－領卷',tentative:false,note:'115學年度上學期；第'+x.week+'週。'+x.note,source:x.source,checkedAt:x.checkedAt,reminders:['領卷日期：'+x.date,'測驗日期：'+x.testDate,'測驗時間：'+x.time,'預定測驗範圍：'+x.scope]}));

@@ -1,4 +1,4 @@
-import {lifeTechnologyMidterm,grade8WeeklyExams,grade7WeeklyExams} from './junior-other-exams.js?v=20261027-english';
+import {lifeTechnologyMidterm,grade8WeeklyExams,grade7WeeklyExams} from './junior-other-exams.js?v=20261027-biology';
 // 原圖由整理者提供；暑測依檔案標示歸入同號學年度。
 export const examFiles=[115,114].flatMap(year=>[7,8,9].map(grade=>({
   id:`${year}-summer-g${grade}`,year:String(year),grade:String(grade),term:'暑期',exam:'暑期學科競賽',
