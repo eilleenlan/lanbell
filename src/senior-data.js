@@ -1,7 +1,8 @@
+import {writingExams,writingNote} from './advance-writing.js';
 import {events as juniorCalendarEvents} from './data.js?v=20261008-school-wide';
 // Public dates transcribed from the supplied parent-organized images.
 // grades: 10=高一, 11=高二, 12=高三. Every entry has an explicit audience.
-export const seniorUpdatedAt = '2026年10月21日';
+export const seniorUpdatedAt = '2026年10月30日';
 export const seniorSources = {
  exam12:{label:'高三第一次段考考程與範圍整理',revised:'2026-10-10',checkedAt:'2026-10-10'},
  week1:{label:'115學年度第一學期原始行事曆・第一週處室公告（家長提供截圖）',checkedAt:'2026-10-08'},
@@ -144,3 +145,7 @@ seniorSources.sharedHolidays={label:'家長確認國高中共同連假安排',re
 seniorEvents.push(...juniorCalendarEvents.filter(e=>e.holidayExamReminder).map(e=>({id:'s-holiday-'+e.start,start:e.start,end:e.end,title:e.title,note:e.note,grades:[10,11,12],category:'放假',source:'sharedHolidays',holidayExamReminder:true})));
 
 export const seniorExternalNotices = [{id:"n-tsinghua-cup115",title:"清華盃化學競賽｜自115年起停辦",note:"主辦單位已公告自民國115年起停止辦理清華盃全國高級中學化學科能力競賽。原學校行事曆所列報名提醒不再建立有效行程；此處僅供備查，與清大化學組人才培育計畫不同。",published:"2026-06-29",checkedAt:"2026-10-08",url:"https://chemcontest.site.nthu.edu.tw/p/406-1333-311062,r11.php"}];
+
+seniorSources.writing2={label:'第二次段考提早考科（使用者提供文字）',checkedAt:'2026-10-30'};
+seniorEvents.push(...writingExams.filter(x=>['11','12'].includes(x.grade)).map(x=>({id:x.id,start:x.date,grades:[Number(x.grade)],category:'考試',title:(x.grade==='11'?'高二':'高三')+'第二次段考提早考科－國文寫作',timeStart:'08:10',timeEnd:x.grade==='12'?'09:40':'09:00',note:'考試時間：'+x.time+'。'+writingNote,source:'writing2'})));
+for(const e of seniorEvents.filter(e=>['s-final12','s-final12-geng','s-exam3'].includes(e.id)))e.searchAliases=[...new Set([...(e.searchAliases||[]),'段考三','段三','期末考'])];
