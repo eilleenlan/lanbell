@@ -1,4 +1,4 @@
-import {writingExams} from './advance-writing.js';
+import {writingExams, supplementalExams} from './advance-writing.js?v=20261104';
 // 家長整理原圖；各份僅適用標示年級；分組與選修安排依原圖保留。
 export const seniorExamFiles=[
  {id:'115-summer-g10',year:'115',grade:'10',term:'暑期',exam:'暑期學科競賽',date:'2026-08-21',revised:'2026-08-03',original:'./assets/exams/115/summer-g10.jpg',thumbnail:'./assets/exams/115/summer-g10.jpg',source:'家長整理提供；修訂日期依原圖落款',note:'高一考程與範圍，歷史資料供備查；各科不得提前繳卷。'},
@@ -8,3 +8,5 @@ export const seniorExamFiles=[
 ];
 
 seniorExamFiles.push(...writingExams.filter(x=>['11','12'].includes(x.grade)));
+
+seniorExamFiles.push(...supplementalExams.filter(exam => exam.grade === '10'));

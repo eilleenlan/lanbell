@@ -1,8 +1,8 @@
-import {writingExams,writingNote} from './advance-writing.js';
+import {writingExams,writingNote, supplementalExams, supplementalCalendarNote} from './advance-writing.js?v=20261104';
 import {events as juniorCalendarEvents} from './data.js?v=20261008-school-wide';
 // Public dates transcribed from the supplied parent-organized images.
 // grades: 10=高一, 11=高二, 12=高三. Every entry has an explicit audience.
-export const seniorUpdatedAt = '2026年10月30日';
+export const seniorUpdatedAt = '2026年11月4日';
 export const seniorSources = {
  exam12:{label:'高三第一次段考考程與範圍整理',revised:'2026-10-10',checkedAt:'2026-10-10'},
  week1:{label:'115學年度第一學期原始行事曆・第一週處室公告（家長提供截圖）',checkedAt:'2026-10-08'},
@@ -149,3 +149,13 @@ export const seniorExternalNotices = [{id:"n-tsinghua-cup115",title:"清華盃�
 seniorSources.writing2={label:'第二次段考提早考科（使用者提供文字）',checkedAt:'2026-10-30'};
 seniorEvents.push(...writingExams.filter(x=>['11','12'].includes(x.grade)).map(x=>({id:x.id,start:x.date,grades:[Number(x.grade)],category:'考試',title:(x.grade==='11'?'高二':'高三')+'第二次段考提早考科－國文寫作',timeStart:'08:10',timeEnd:x.grade==='12'?'09:40':'09:00',note:'考試時間：'+x.time+'。'+writingNote,source:'writing2'})));
 for(const e of seniorEvents.filter(e=>['s-final12','s-final12-geng','s-exam3'].includes(e.id)))e.searchAliases=[...new Set([...(e.searchAliases||[]),'段考三','段三','期末考'])];
+
+seniorSources.advanceSupplement = {label:'第二次段考提前考科（家長提供文字）', checkedAt:'2026-11-04'};
+for (const exam of supplementalExams.filter(exam => exam.grade === '10')) {
+  const [timeStart, timeEnd] = exam.time.split('–');
+  seniorEvents.push({
+    id: exam.id, start: exam.date, grades: [10], category: '考試',
+    title: '高一第二次段考提前考科－' + exam.subject, timeStart, timeEnd,
+    note: supplementalCalendarNote(exam), source: 'advanceSupplement'
+  });
+}

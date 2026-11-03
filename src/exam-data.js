@@ -1,4 +1,4 @@
-import {writingExams} from './advance-writing.js';
+import {writingExams, supplementalExams} from './advance-writing.js?v=20261104';
 import {lifeTechnologyMidterm,grade8WeeklyExams,grade7WeeklyExams} from './junior-other-exams.js?v=20261027-biology';
 // 原圖由整理者提供；暑測依檔案標示歸入同號學年度。
 export const examFiles=[115,114].flatMap(year=>[7,8,9].map(grade=>({
@@ -83,3 +83,5 @@ examFiles.push(lifeTechnologyMidterm,...grade8WeeklyExams,...grade7WeeklyExams);
 examFiles.sort((a,b)=>Number(b.year)-Number(a.year)||a.date.localeCompare(b.date)||Number(a.grade)-Number(b.grade));
 
 examFiles.push(...writingExams.filter(x=>['8','9'].includes(x.grade)));
+
+examFiles.push(...supplementalExams.filter(exam => exam.grade === '9'));
