@@ -1,9 +1,9 @@
 import {holidayExamReminder} from './holiday-exams.js?v=20261104-advance';
 import { seniorOverview, seniorOverviewRange } from './senior-overview.js?v=20261007-summer';
-import { seniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource, admissionEvents, seniorExternalNotices, audienceLabel } from './senior-data.js?v=20261105-privacy';
+import { seniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource, admissionEvents, seniorExternalNotices, audienceLabel } from './senior-data.js?v=20261106-trip-note';
 
 import { mountExams } from './exams.js?v=20261104-advance';
-import { seniorExamFiles } from './senior-exam-data.js?v=20261105-privacy';
+import { seniorExamFiles } from './senior-exam-data.js?v=20261106-trip-note';
 export const seniorRoutes=[['/senior','高中首頁','⌂'],['/senior/calendar','行事曆','📅'],['/senior/exams','考程與範圍','▤'],['/senior/gsat','升學重要日程','🎓']];
 const grades={10:'高一',11:'高二',12:'高三'};
 const categories=['校外培育／競賽','放假','升學','考試','田教','家長參與','健康','行政','活動'];

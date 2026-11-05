@@ -1,8 +1,8 @@
 import {writingExams,writingNote, supplementalExams, supplementalCalendarNote} from './advance-writing.js?v=20261104';
-import {events as juniorCalendarEvents} from './data.js?v=20261105-privacy';
+import {events as juniorCalendarEvents} from './data.js?v=20261106-trip-note';
 // Public dates transcribed from the supplied parent-organized images.
 // grades: 10=高一, 11=高二, 12=高三. Every entry has an explicit audience.
-export const seniorUpdatedAt = '2026年11月5日';
+export const seniorUpdatedAt = '2026年11月6日';
 export const seniorSources = {
  exam12:{label:'高三第一次段考考程與範圍整理',revised:'2026-10-10',checkedAt:'2026-10-10'},
  week1:{label:'115學年度第一學期原始行事曆・第一週處室公告（家長提供截圖）',checkedAt:'2026-10-08'},
@@ -75,21 +75,21 @@ export const seniorEvents = [
   {id:'s-parent10',start:'2026-08-06',grades:[10],category:'家長參與',title:'高一家長座談會',tentative:true,source:'summer'},
   {id:'s-photo12',start:'2026-08-07',grades:[12],category:'行政',title:'高三證件照拍攝',tentative:true,source:'summer'},
   {id:'s-mock2',start:'2026-09-02',end:'2026-09-03',grades:[12],category:'考試',title:'高三第二次模擬考',source:'exams',searchAliases:['模考']},
-  {id:'s-trip10-2026-09-10',start:'2026-09-10',end:'2026-09-11',grades:[10],category:'田教',title:'高一過夜田教',source:'trips10',note:'原訂 2027/1/7～1/8，依修訂改為 2026/9/10～9/11。',searchAliases:['田野教育','教育旅行']},
+  {id:'s-trip10-2026-09-10',start:'2026-09-10',end:'2026-09-11',grades:[10],category:'田教',title:'高一過夜田教',source:'trips10',note:'各班實際日期請依學校通知確認\n原訂 2027/1/7～1/8，依修訂改為 2026/9/10～9/11。',searchAliases:['田野教育','教育旅行']},
   {id:'s-urine10',start:'2026-09-15',grades:[10],category:'健康',title:'高一新生尿液健康檢查',tentative:true,source:'activities'},
-  {id:'s-trip11-2026-09-17',start:'2026-09-17',end:'2026-09-18',grades:[11],category:'田教',title:'高二過夜田教',source:'trips11',searchAliases:['田野教育','教育旅行']},
+  {id:'s-trip11-2026-09-17',start:'2026-09-17',end:'2026-09-18',grades:[11],category:'田教',title:'高二過夜田教',source:'trips11',note:'各班實際日期請依學校通知確認',searchAliases:['田野教育','教育旅行']},
   {id:'s-parent12',start:'2026-09-22',grades:[12],category:'家長參與',title:'高三家長會',source:'activities',note:'原表列高三／國九家長會；此處只列高中適用範圍，未套用國九專屬流程。'},
   {id:'s-xray10',start:'2026-09-30',grades:[10],category:'健康',title:'高一新生 X 光健康檢查',source:'activities',note:'下午進行。'},
-  {id:'s-trip11-2026-10-01',start:'2026-10-01',end:'2026-10-02',grades:[11],category:'田教',title:'高二過夜田教',source:'trips11',searchAliases:['田野教育','教育旅行']},
-  {id:'s-trip11-2026-10-22',start:'2026-10-22',end:'2026-10-23',grades:[11],category:'田教',title:'高二過夜田教',source:'trips11',searchAliases:['田野教育','教育旅行']},
+  {id:'s-trip11-2026-10-01',start:'2026-10-01',end:'2026-10-02',grades:[11],category:'田教',title:'高二過夜田教',source:'trips11',note:'各班實際日期請依學校通知確認',searchAliases:['田野教育','教育旅行']},
+  {id:'s-trip11-2026-10-22',start:'2026-10-22',end:'2026-10-23',grades:[11],category:'田教',title:'高二過夜田教',source:'trips11',note:'各班實際日期請依學校通知確認',searchAliases:['田野教育','教育旅行']},
   {id:'s-heart10',start:'2026-10-22',grades:[10],category:'健康',title:'高一外縣市學生心臟病篩檢',source:'activities',note:'僅適用符合篩檢對象的外縣市學生，請依通知確認。'},
   {id:'s-drama10',start:'2026-10-23',grades:[10],category:'活動',title:'高一英語戲劇比賽',tentative:true,source:'activities',note:'夜間進行。'},
   {id:'s-mock3',start:'2026-10-28',end:'2026-10-29',grades:[12],category:'考試',title:'高三第三次模擬考',source:'exams',searchAliases:['模考']},
   {id:'s-parent1011',start:'2026-10-31',grades:[10,11],category:'家長參與',title:'高一、高二期中家長座談會',source:'activities',note:"115學年度第1學期期中家長座談會\n\n活動流程\n• 08:30 開放入場。\n• 09:00～10:30 親職講座。\n• 10:30～12:00 家長座談會。\n\n親職講座\n主題：父母如何與青春藍色風暴共舞\n主講人：林純竹 臨床心理師（三軍北投分院心理科）\n地點：校內指定大樓\n主辦單位：輔導室\n四大主題：\n• 青少年常見憂鬱的樣貌\n• 父母自我穩定術\n• 孩子我能看見你\n• 你不孤單尋求資源協助\n\n家長座談會\n地點：班級教室\n邀請對象：國中七、八年級、九德、高中一、二年級家長\n主辦單位：學務處\n內容：\n• 班級經營分享\n• 學生學習與生活適應\n• 親師溝通與合作\n• 綜合意見交流\n\n注意事項\n• 家長建議事項表：10/23（五）前填繳。\n• 學校附近無大型停車場，建議搭乘大眾運輸工具。\n• 僅開放學校正門入校。",checkedAt:'2026-10-21',detailSource:'使用者提供施工單004文字說明'},
   {id:'s-mock4',start:'2026-12-08',end:'2026-12-09',grades:[12],category:'考試',title:'高三第四次模擬考',source:'exams',searchAliases:['模考']},
-  {id:'s-trip10-2026-12-14',start:'2026-12-14',end:'2026-12-15',grades:[10],category:'田教',title:'高一過夜田教',source:'trips10',searchAliases:['田野教育','教育旅行']},
+  {id:'s-trip10-2026-12-14',start:'2026-12-14',end:'2026-12-15',grades:[10],category:'田教',title:'高一過夜田教',source:'trips10',note:'各班實際日期請依學校通知確認',searchAliases:['田野教育','教育旅行']},
   {id:'s-final12',start:'2026-12-29',end:'2026-12-30',grades:[12],category:'考試',title:'高三期末考',source:'exams'},
-  {id:'s-trip10-2027-01-04',start:'2027-01-04',end:'2027-01-05',grades:[10],category:'田教',title:'高一過夜田教',source:'trips10',searchAliases:['田野教育','教育旅行']},
+  {id:'s-trip10-2027-01-04',start:'2027-01-04',end:'2027-01-05',grades:[10],category:'田教',title:'高一過夜田教',source:'trips10',note:'各班實際日期請依學校通知確認',searchAliases:['田野教育','教育旅行']},
   {id:'s-exam3',start:'2027-01-19',end:'2027-01-20',grades:[10,11],category:'考試',title:'高一、高二第三次段考',source:'exams',note:'原訂 1/18～1/19，依修訂改為 1/19～1/20。',searchAliases:['段三']},
 ];
 export const gsatSource = {

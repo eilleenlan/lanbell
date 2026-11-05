@@ -1,10 +1,10 @@
 import {holidayExamReminder} from './holiday-exams.js?v=20261104-advance';
-import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261105-privacy';
+import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261106-trip-note';
 import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261011-orientation';
 import { semesterOverview, semesters } from './semester.js?v=20261011';
 import { uniforms } from './uniforms.js?v=20261030-hoodie';
 import { mountExams, examLink } from './exams.js?v=20261104-advance';
-import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261105-privacy';
+import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261106-trip-note';
 
 const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服價格','👕']];
 const categoryGroups={

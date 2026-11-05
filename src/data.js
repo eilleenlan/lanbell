@@ -1,8 +1,8 @@
 import {writingNote, supplementalExams, supplementalCalendarNote} from './advance-writing.js?v=20261104';
 import {lifeTechnologyEvent,grade8WeeklyEvents,grade7WeeklyEvents} from './junior-other-exams.js?v=20261027-biology';
-import {junior114SecondEvents} from './junior-114-2.js?v=20261105-privacy';
+import {junior114SecondEvents} from './junior-114-2.js?v=20261106-trip-note';
 const biology = supplementalExams.find(exam => exam.grade === '9');
-export const updatedAt = '2026年11月5日';
+export const updatedAt = '2026年11月6日';
 
 // 115學年度第一學期國中部活動日期；民國115/116年轉為西元2026/2027年。
 // grades: 7=國七、8=國八、9=國九；空陣列代表國中部全體。
@@ -51,35 +51,35 @@ export const events = [
   { start:'2027-01-21', end:'2027-02-02', category:'開學/放假', grades:[], title:'寒期輔導', searchAliases:["寒輔","寒假輔導"], calendarKind:'winter-course', weekdays:[1,2,3,4,5], note:'．寒輔週一～週五上課，週六、日不用到校。\n．16：10放學。', tentative:true },
   { start:'2027-02-11', category:'開學/放假', grades:[], title:'115-2學期開學日', tentative:true },
   // 國七單日田教
-  { start:'2026-08-10', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-08-11', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-08-12', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-08-13', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-08-17', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-08-18', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-09-09', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-09-14', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-09-21', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-09-23', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-09-30', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-10-19', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-10-23', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-11-02', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-11-04', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-11-09', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-11-11', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-11-30', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-12-07', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
-  { start:'2026-12-28', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'活動日期依整理資料' },
+  { start:'2026-08-10', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-08-11', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-08-12', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-08-13', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-08-17', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-08-18', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-09-09', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-09-14', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-09-21', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-09-23', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-09-30', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-10-19', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-10-23', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-11-02', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-11-04', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-11-09', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-11-11', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-11-30', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-12-07', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-12-28', category:'田教/校外教學', grades:[7], title:'國七單日田教', note:'各班實際日期請依學校通知確認' },
   // 國八過夜田教
-  { start:'2026-10-29', end:'2026-10-30', category:'田教/校外教學', grades:[8], title:'國八過夜田教', note:'活動日期依整理資料' },
-  { start:'2026-11-05', end:'2026-11-06', category:'田教/校外教學', grades:[8], title:'國八過夜田教', note:'活動日期依整理資料' },
-  { start:'2026-11-12', end:'2026-11-13', category:'田教/校外教學', grades:[8], title:'國八過夜田教', note:'活動日期依整理資料' },
-  { start:'2026-12-10', end:'2026-12-11', category:'田教/校外教學', grades:[8], title:'國八過夜田教', note:'活動日期依整理資料' },
-  { start:'2026-12-21', end:'2026-12-22', category:'田教/校外教學', grades:[8], title:'國八過夜田教', note:'活動日期依整理資料' },
+  { start:'2026-10-29', end:'2026-10-30', category:'田教/校外教學', grades:[8], title:'國八過夜田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-11-05', end:'2026-11-06', category:'田教/校外教學', grades:[8], title:'國八過夜田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-11-12', end:'2026-11-13', category:'田教/校外教學', grades:[8], title:'國八過夜田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-12-10', end:'2026-12-11', category:'田教/校外教學', grades:[8], title:'國八過夜田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-12-21', end:'2026-12-22', category:'田教/校外教學', grades:[8], title:'國八過夜田教', note:'各班實際日期請依學校通知確認' },
   // 國九單日田教
-  { start:'2026-09-03', category:'田教/校外教學', grades:[9], title:'國九單日田教', note:'活動日期依整理資料' },
-  { start:'2026-09-04', category:'田教/校外教學', grades:[9], title:'國九單日田教', note:'活動日期依整理資料' },
+  { start:'2026-09-03', category:'田教/校外教學', grades:[9], title:'國九單日田教', note:'各班實際日期請依學校通知確認' },
+  { start:'2026-09-04', category:'田教/校外教學', grades:[9], title:'國九單日田教', note:'各班實際日期請依學校通知確認' },
   // 全民英檢
   { start:'2026-07-25', category:'考試-全民英檢', grades:[], title:'全民英檢中高級說寫考試', note:'報名期間：6/1–6/24' },
   { start:'2026-08-15', category:'考試-全民英檢', grades:[], title:'全民英檢中級聽讀暨一日考', note:'報名期間：5/18–6/29' },

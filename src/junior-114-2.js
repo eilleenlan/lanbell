@@ -232,9 +232,9 @@ export const junior114SecondEvents=[
     "grades": [
       7
     ],
-    "note": "114下學期。",
+    "note": "各班實際日期請依學校通知確認\n114下學期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "end": "2026-03-20",
     "searchAliases": [
       "田野教育",
@@ -249,9 +249,9 @@ export const junior114SecondEvents=[
     "grades": [
       7
     ],
-    "note": "114下學期。",
+    "note": "各班實際日期請依學校通知確認\n114下學期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "end": "2026-04-17",
     "searchAliases": [
       "田野教育",
@@ -266,9 +266,9 @@ export const junior114SecondEvents=[
     "grades": [
       7
     ],
-    "note": "114下學期。",
+    "note": "各班實際日期請依學校通知確認\n114下學期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "end": "2026-04-21",
     "searchAliases": [
       "田野教育",
@@ -283,9 +283,9 @@ export const junior114SecondEvents=[
     "grades": [
       7
     ],
-    "note": "114下學期。",
+    "note": "各班實際日期請依學校通知確認\n114下學期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "end": "2026-06-16",
     "searchAliases": [
       "田野教育",
@@ -348,9 +348,9 @@ export const junior114SecondEvents=[
     "grades": [
       8
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "end": "2026-03-17",
     "searchAliases": [
       "田野教育",
@@ -365,9 +365,9 @@ export const junior114SecondEvents=[
     "grades": [
       8
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "end": "2026-04-02",
     "searchAliases": [
       "田野教育",
@@ -382,9 +382,9 @@ export const junior114SecondEvents=[
     "grades": [
       8
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "end": "2026-04-14",
     "searchAliases": [
       "田野教育",
@@ -399,9 +399,9 @@ export const junior114SecondEvents=[
     "grades": [
       8
     ],
-    "note": "依115/1/21異動通知與原表紅字修訂日期。",
+    "note": "各班實際日期請依學校通知確認\n依115/1/21異動通知與原表紅字修訂日期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "end": "2026-06-09",
     "searchAliases": [
       "田野教育",
@@ -416,9 +416,9 @@ export const junior114SecondEvents=[
     "grades": [
       8
     ],
-    "note": "依115/1/21異動通知與原表紅字修訂日期。",
+    "note": "各班實際日期請依學校通知確認\n依115/1/21異動通知與原表紅字修訂日期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "end": "2026-05-29",
     "searchAliases": [
       "田野教育",
@@ -433,9 +433,9 @@ export const junior114SecondEvents=[
     "grades": [
       9
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "searchAliases": [
       "田野教育",
       "校外教學"
@@ -449,9 +449,9 @@ export const junior114SecondEvents=[
     "grades": [
       9
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "searchAliases": [
       "田野教育",
       "校外教學"
@@ -465,9 +465,9 @@ export const junior114SecondEvents=[
     "grades": [
       9
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "searchAliases": [
       "田野教育",
       "校外教學"
@@ -481,9 +481,9 @@ export const junior114SecondEvents=[
     "grades": [
       9
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "searchAliases": [
       "田野教育",
       "校外教學"
@@ -497,9 +497,9 @@ export const junior114SecondEvents=[
     "grades": [
       9
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "searchAliases": [
       "田野教育",
       "校外教學"
@@ -513,9 +513,9 @@ export const junior114SecondEvents=[
     "grades": [
       9
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "searchAliases": [
       "田野教育",
       "校外教學"
@@ -529,9 +529,9 @@ export const junior114SecondEvents=[
     "grades": [
       9
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "searchAliases": [
       "田野教育",
       "校外教學"
@@ -545,9 +545,9 @@ export const junior114SecondEvents=[
     "grades": [
       9
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "searchAliases": [
       "田野教育",
       "校外教學"
@@ -561,9 +561,9 @@ export const junior114SecondEvents=[
     "grades": [
       9
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "searchAliases": [
       "田野教育",
       "校外教學"
@@ -577,9 +577,9 @@ export const junior114SecondEvents=[
     "grades": [
       9
     ],
-    "note": "",
+    "note": "各班實際日期請依學校通知確認",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-06",
     "searchAliases": [
       "田野教育",
       "校外教學"
