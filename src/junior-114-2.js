@@ -227,14 +227,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-field7-1",
     "start": "2026-03-19",
-    "title": "國七田教（忠、孝、仁班）",
+    "title": "國七田教",
     "category": "田教/校外教學",
     "grades": [
       7
     ],
-    "note": "忠、孝、仁班；114下學期。",
+    "note": "114下學期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "end": "2026-03-20",
     "searchAliases": [
       "田野教育",
@@ -244,14 +244,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-field7-2",
     "start": "2026-04-16",
-    "title": "國七田教（愛、信、義班）",
+    "title": "國七田教",
     "category": "田教/校外教學",
     "grades": [
       7
     ],
-    "note": "愛、信、義班；114下學期。",
+    "note": "114下學期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "end": "2026-04-17",
     "searchAliases": [
       "田野教育",
@@ -261,14 +261,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-field7-3",
     "start": "2026-04-20",
-    "title": "國七田教（和、平、智班）",
+    "title": "國七田教",
     "category": "田教/校外教學",
     "grades": [
       7
     ],
-    "note": "和、平、智班；114下學期。",
+    "note": "114下學期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "end": "2026-04-21",
     "searchAliases": [
       "田野教育",
@@ -278,14 +278,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-field7-4",
     "start": "2026-06-15",
-    "title": "國七田教（勇、望班）",
+    "title": "國七田教",
     "category": "田教/校外教學",
     "grades": [
       7
     ],
-    "note": "勇、望班；114下學期。",
+    "note": "114下學期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "end": "2026-06-16",
     "searchAliases": [
       "田野教育",
@@ -295,14 +295,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-ntu7-1",
     "start": "2026-05-15",
-    "title": "國七北藝大課程（忠、孝、仁、愛班）",
+    "title": "國七北藝大課程",
     "category": "田教/校外教學",
     "grades": [
       7
     ],
-    "note": "忠、孝、仁、愛班。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "北藝大",
       "臺北藝術大學"
@@ -311,14 +311,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-ntu7-2",
     "start": "2026-05-22",
-    "title": "國七北藝大課程（信、義、和、平班）",
+    "title": "國七北藝大課程",
     "category": "田教/校外教學",
     "grades": [
       7
     ],
-    "note": "信、義、和、平班。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "北藝大",
       "臺北藝術大學"
@@ -327,14 +327,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-ntu7-3",
     "start": "2026-06-12",
-    "title": "國七北藝大課程（智、勇、望、禮、德班）",
+    "title": "國七北藝大課程",
     "category": "田教/校外教學",
     "grades": [
       7
     ],
-    "note": "智、勇、望、禮、德班。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "北藝大",
       "臺北藝術大學"
@@ -343,14 +343,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-field8-1",
     "start": "2026-03-16",
-    "title": "國八田教（忠、孝、愛班）",
+    "title": "國八田教",
     "category": "田教/校外教學",
     "grades": [
       8
     ],
-    "note": "忠、孝、愛班。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "end": "2026-03-17",
     "searchAliases": [
       "田野教育",
@@ -360,14 +360,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-field8-2",
     "start": "2026-04-01",
-    "title": "國八田教（信、和、平班）",
+    "title": "國八田教",
     "category": "田教/校外教學",
     "grades": [
       8
     ],
-    "note": "信、和、平班。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "end": "2026-04-02",
     "searchAliases": [
       "田野教育",
@@ -377,14 +377,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-field8-3",
     "start": "2026-04-13",
-    "title": "國八田教（智、勇、望班）",
+    "title": "國八田教",
     "category": "田教/校外教學",
     "grades": [
       8
     ],
-    "note": "智、勇、望班。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "end": "2026-04-14",
     "searchAliases": [
       "田野教育",
@@ -394,14 +394,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-field8-4",
     "start": "2026-06-08",
-    "title": "國八田教（仁、義、禮班）",
+    "title": "國八田教",
     "category": "田教/校外教學",
     "grades": [
       8
     ],
-    "note": "仁、義、禮班。依115/1/21異動通知與原表紅字修訂日期。",
+    "note": "依115/1/21異動通知與原表紅字修訂日期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "end": "2026-06-09",
     "searchAliases": [
       "田野教育",
@@ -411,14 +411,14 @@ export const junior114SecondEvents=[
   {
     "id": "j1142-field8-5",
     "start": "2026-05-28",
-    "title": "國八田教（誠、德班）",
+    "title": "國八田教",
     "category": "田教/校外教學",
     "grades": [
       8
     ],
-    "note": "誠、德班。依115/1/21異動通知與原表紅字修訂日期。",
+    "note": "依115/1/21異動通知與原表紅字修訂日期。",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "end": "2026-05-29",
     "searchAliases": [
       "田野教育",
@@ -426,160 +426,160 @@ export const junior114SecondEvents=[
     ]
   },
   {
-    "id": "j1142-field9-九直A-03-10",
+    "id": "j1142-field9-event-03-10",
     "start": "2026-03-10",
-    "title": "國九田教（九直A）",
+    "title": "國九田教",
     "category": "田教/校外教學",
     "grades": [
       9
     ],
-    "note": "僅適用九直A。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "田野教育",
       "校外教學"
     ]
   },
   {
-    "id": "j1142-field9-九直A-04-08",
+    "id": "j1142-field9-event-04-08",
     "start": "2026-04-08",
-    "title": "國九田教（九直A）",
+    "title": "國九田教",
     "category": "田教/校外教學",
     "grades": [
       9
     ],
-    "note": "僅適用九直A。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "田野教育",
       "校外教學"
     ]
   },
   {
-    "id": "j1142-field9-九直A-04-28",
+    "id": "j1142-field9-event-04-28",
     "start": "2026-04-28",
-    "title": "國九田教（九直A）",
+    "title": "國九田教",
     "category": "田教/校外教學",
     "grades": [
       9
     ],
-    "note": "僅適用九直A。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "田野教育",
       "校外教學"
     ]
   },
   {
-    "id": "j1142-field9-九直A-06-10",
+    "id": "j1142-field9-event-06-10",
     "start": "2026-06-10",
-    "title": "國九田教（九直A）",
+    "title": "國九田教",
     "category": "田教/校外教學",
     "grades": [
       9
     ],
-    "note": "僅適用九直A。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "田野教育",
       "校外教學"
     ]
   },
   {
-    "id": "j1142-field9-九直B-03-11",
+    "id": "j1142-field9-event-03-11",
     "start": "2026-03-11",
-    "title": "國九田教（九直B）",
+    "title": "國九田教",
     "category": "田教/校外教學",
     "grades": [
       9
     ],
-    "note": "僅適用九直B。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "田野教育",
       "校外教學"
     ]
   },
   {
-    "id": "j1142-field9-九直B-04-07",
+    "id": "j1142-field9-event-04-07",
     "start": "2026-04-07",
-    "title": "國九田教（九直B）",
+    "title": "國九田教",
     "category": "田教/校外教學",
     "grades": [
       9
     ],
-    "note": "僅適用九直B。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "田野教育",
       "校外教學"
     ]
   },
   {
-    "id": "j1142-field9-九直B-04-29",
+    "id": "j1142-field9-event-04-29",
     "start": "2026-04-29",
-    "title": "國九田教（九直B）",
+    "title": "國九田教",
     "category": "田教/校外教學",
     "grades": [
       9
     ],
-    "note": "僅適用九直B。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "田野教育",
       "校外教學"
     ]
   },
   {
-    "id": "j1142-field9-九直B-05-19",
+    "id": "j1142-field9-event-05-19",
     "start": "2026-05-19",
-    "title": "國九田教（九直B）",
+    "title": "國九田教",
     "category": "田教/校外教學",
     "grades": [
       9
     ],
-    "note": "僅適用九直B。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "田野教育",
       "校外教學"
     ]
   },
   {
-    "id": "j1142-field9-九德-02-25",
+    "id": "j1142-field9-event-02-25",
     "start": "2026-02-25",
-    "title": "國九田教（九德）",
+    "title": "國九田教",
     "category": "田教/校外教學",
     "grades": [
       9
     ],
-    "note": "僅適用九德。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "田野教育",
       "校外教學"
     ]
   },
   {
-    "id": "j1142-field9-九德-04-10",
+    "id": "j1142-field9-event-04-10",
     "start": "2026-04-10",
-    "title": "國九田教（九德）",
+    "title": "國九田教",
     "category": "田教/校外教學",
     "grades": [
       9
     ],
-    "note": "僅適用九德。",
+    "note": "",
     "source": "114下活動／田教日期整理（更新），家長提供；田教異動通知115.01.21",
-    "checkedAt": "2026-10-11",
+    "checkedAt": "2026-11-05",
     "searchAliases": [
       "田野教育",
       "校外教學"
