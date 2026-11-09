@@ -1,10 +1,11 @@
+import {publicCalendarEvent} from './public-calendar.js?v=20261109-b';
 import {holidayExamReminder} from './holiday-exams.js?v=20261104-advance';
 import { seniorOverview, seniorOverviewRange } from './senior-overview.js?v=20261007-summer';
-import { seniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource, admissionEvents, seniorExternalNotices, audienceLabel } from './senior-data.js?v=20261106-trip-note';
+import { seniorEvents as sourceSeniorEvents, seniorSources, seniorUpdatedAt, gsatExam, gsatMilestones, gsatSource, admissionEvents, seniorExternalNotices, audienceLabel } from './senior-data.js?v=20261106-trip-note';
 
-import { mountExams } from './exams.js?v=20261104-advance';
-import { seniorExamFiles } from './senior-exam-data.js?v=20261106-trip-note';
-export const seniorRoutes=[['/senior','高中首頁','⌂'],['/senior/calendar','行事曆','📅'],['/senior/exams','考程與範圍','▤'],['/senior/gsat','升學重要日程','🎓']];
+import { mountExams, seniorExamFiles, examsPublished } from './exam-access.js?v=20261109';
+const seniorEvents=sourceSeniorEvents.map(publicCalendarEvent);
+export const seniorRoutes=[['/senior','高中首頁','⌂'],['/senior/calendar','行事曆','📅'],['/senior/exams','考程與範圍','▤'],['/senior/gsat','升學重要日程','🎓']].filter(([path])=>examsPublished||path!=='/senior/exams');
 const grades={10:'高一',11:'高二',12:'高三'};
 const categories=['校外培育／競賽','放假','升學','考試','田教','家長參與','健康','行政','活動'];
 const filter={grade:'all',category:'all',query:'',period:'semester',past:false,view:'overview',month:'2026-10'};

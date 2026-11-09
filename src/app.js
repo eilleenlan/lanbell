@@ -1,12 +1,14 @@
+import {publicCalendarEvent} from './public-calendar.js?v=20261109-b';
 import {holidayExamReminder} from './holiday-exams.js?v=20261104-advance';
-import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261106-trip-note';
+import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261109-exam-pause';
 import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261011-orientation';
 import { semesterOverview, semesters } from './semester.js?v=20261011';
 import { uniforms } from './uniforms.js?v=20261030-hoodie';
-import { mountExams, examLink } from './exams.js?v=20261104-advance';
-import { affairs, events, learningGroups, notices, updatedAt } from './data.js?v=20261106-trip-note';
+import { mountExams, examLink, examsPublished } from './exam-access.js?v=20261109';
+import { affairs, events as sourceEvents, learningGroups, notices, updatedAt } from './data.js?v=20261109-exam-pause';
 
-const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服價格','👕']];
+const events=sourceEvents.map(publicCalendarEvent);
+const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服價格','👕']].filter(([path])=>examsPublished||path!=='/exams');
 const categoryGroups={
   '重要日程':['開學/放假','活動','夜間課程/夜自習','田教/校外教學','畢業'],
   '考試':['考試-全民英檢','考試-學科競賽','考試-國際能力','考試-模擬考','考試-段考'],
@@ -46,6 +48,11 @@ const googleCalendarUrl=(event)=>{
   return `https://calendar.google.com/calendar/render?${params}`;
 };
 const eventDetails=(event)=>{
+  if(!examsPublished){
+    const single = event.schedule?.length===1 ? event.schedule[0] : null;
+    const items = [...(single ? [single.date+' '+single.time+' '+single.subject] : []), ...(event.reminders||[])];
+    return items.length ? '<details class="event-details"><summary>查看考試提醒</summary><div class="event-details-body"><ul>'+items.map(item=>'<li>'+escapeHtml(item)+'</li>').join('')+'</ul></div></details>' : '';
+  }
   if(!event.schedule&&!event.examScope&&!event.reminders)return '';
   const scopeFor=(subject)=>event.examScope?.find(([name])=>subject.replace(/科|閱讀|聽力/g,'')===name.replace(/科/g,''))?.[1]||'—';
   const schedule=event.schedule?`<section><h3>考試時間與範圍</h3><div class="exam-table-wrap"><table><thead><tr><th>日期</th><th>時間</th><th>科目</th><th>測驗範圍</th></tr></thead><tbody>${event.schedule.map((item,index)=>`<tr class="${index>0&&item.date!==event.schedule[index-1].date?'new-exam-day':''}"><td>${item.date}</td><td>${item.time}</td><td>${item.subject}</td><td>${scopeFor(item.subject)}</td></tr>`).join('')}</tbody></table></div></section>`:'';
@@ -136,7 +143,7 @@ function notice(){return head('CHANGELOG','網站最新異動','記錄本站資�
 function render(resetScroll=false){
   const previousScroll=window.scrollY;
   const raw=(location.hash.slice(1)||'/').split('?')[0];
-  const path=[...routes,...seniorRoutes].some(([p])=>p===raw)?raw:'/';
+  const path=(['/exams','/senior/exams'].includes(raw)||[...routes,...seniorRoutes].some(([p])=>p===raw))?raw:'/';
   const isSenior=path.startsWith('/senior');
   const displayRoutes=isSenior?seniorRoutes:routes;
   document.title='小鈴鐺資訊整合（'+(isSenior?'高中':'國中')+'）';
@@ -149,7 +156,7 @@ function render(resetScroll=false){
   if(path==='/'){
     document.querySelectorAll('a[href="#/calendar"]:not([data-event-index])').forEach(a=>a.onclick=()=>{state.view='overview';state.grade='all';state.place='all';state.groups=[];state.categories=[];state.query=''});
     const actions=document.querySelector('.hero-actions');
-    const archiveLink=actions.querySelector('.secondary');archiveLink.href='#/exams';archiveLink.textContent='▤ 考程與範圍';
+    const archiveLink=actions.querySelector('.secondary');archiveLink.href='#/exams';archiveLink.textContent='▤ 考程與範圍';if(!examsPublished)archiveLink.remove();
     document.querySelector('.quick-section')?.remove();
     actions.insertAdjacentHTML('beforebegin','<form class="calendar-search home-search" id="home-search" role="search"><label for="home-search-input">搜尋所有行程</label><div><input id="home-search-input" type="search" placeholder="例如：段考、國九、10/23" autocomplete="off"><button class="search-button" type="submit">搜尋</button></div></form>');
     const homeSearch=document.querySelector('#home-search');
