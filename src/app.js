@@ -3,12 +3,12 @@ import {holidayExamReminder} from './holiday-exams.js?v=20261104-advance';
 import { seniorRoutes, seniorPage, mountSenior, seniorUpdatedAt } from './senior.js?v=20261109-exam-pause';
 import { academicPeriods, overlapsPeriod } from './academic-periods.js?v=20261011-orientation';
 import { semesterOverview, semesters } from './semester.js?v=20261011';
-import { uniforms } from './uniforms.js?v=20261030-hoodie';
+import { uniforms } from './uniforms-public.js?v=20261109-price-pause';
 import { mountExams, examLink, examsPublished } from './exam-access.js?v=20261109';
 import { affairs, events as sourceEvents, learningGroups, notices, updatedAt } from './data.js?v=20261109-exam-pause';
 
 const events=sourceEvents.map(publicCalendarEvent);
-const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服價格','👕']].filter(([path])=>examsPublished||path!=='/exams');
+const routes=[['/','首頁','⌂'],['/calendar','行事曆','📅'],['/exams','考程與範圍','▤'],['/uniforms','校服品項','👕']].filter(([path])=>examsPublished||path!=='/exams');
 const categoryGroups={
   '重要日程':['開學/放假','活動','夜間課程/夜自習','田教/校外教學','畢業'],
   '考試':['考試-全民英檢','考試-學科競賽','考試-國際能力','考試-模擬考','考試-段考'],
